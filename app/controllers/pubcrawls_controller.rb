@@ -1,0 +1,2 @@
+class PubcrawlsController < ApplicationController
+end
