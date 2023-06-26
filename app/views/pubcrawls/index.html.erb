@@ -1,0 +1,7 @@
+<div id="content-container">
+  <div class="cards">
+    <% @pubcrawls.each do |pubcrawl| %>
+      <%= render "card", pubcrawl: pubcrawl %>
+    <% end %>
+  </div>
+</div>
