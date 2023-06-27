@@ -1,4 +1,7 @@
 <div class="container">
   <h1><%= @booking.event.pubcrawl.name%></h1>
   <h3><%= @booking.event.date%></h1>
+  <p>Are you sure you want to book this pubcrawl ? </p>
+    <%= link_to "Lets go !", event_path(@booking.event), class: 'button-pink-valid' %>
+    <%= link_to "Not yet !", pubcrawls_path, class: 'button-pink-invalid' %>
 </div>
