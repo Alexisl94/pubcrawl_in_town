@@ -1,21 +1,47 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon" data-controller="navbar">
   <div class="container-fluid">
     <% if user_signed_in? %>
       <ul class="navbar-nav">
         <li class="nav-item">
-          <!-- Exemple d'icône -->
-          <a href="#" class="nav-link">
-            <i class="nav-item fa-solid fa-magnifying-glass-location" style="color: #e5b8f4;"></i>
-            <p>Discover</p>
-            <i class="nav-item fa-solid fa-champagne-glasses" style="color: #e5b8f4;"></i>
-            <p>Pubcrawls</p>
-            <i class="nav-item fa-solid fa-user" style="color: #e5b8f4;"></i>
-            <p>Event</p>
-            <i class="nav-item fa-solid fa-comments" style="color: #e5b8f4;"></i>
-            <p>Profile</p>
-          </a>
+          <%= link_to root_path, class: "nav-link" do %>
+            <% if current_page?(root_path) %>
+              <i class="nav-item fa-solid fa-house active"></i>
+              <span class="icon-text">Home</span>
+            <% else %>
+              <i class="nav-item fa-solid fa-house"></i>
+            <% end %>
+          <% end %>
         </li>
-        <!-- Ajoutez d'autres éléments <li> pour des icônes supplémentaires -->
+        <li class="nav-item">
+          <%= link_to pubcrawls_path, class: "nav-link" do %>
+            <% if current_page?(pubcrawls_path) %>
+              <i class="nav-item fa-solid fa-champagne-glasses active"></i>
+              <span class="icon-text">Pubcrawls</span>
+            <% else %>
+              <i class="nav-item fa-solid fa-champagne-glasses"></i>
+            <% end %>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to events_path, class: "nav-link" do %>
+            <% if current_page?(events_path) %>
+              <i class="nav-item fa-solid fa-people-group active"></i>
+              <span class="icon-text">Events</span>
+            <% else %>
+              <i class="nav-item fa-solid fa-people-group"></i>
+            <% end %>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "#", class: "nav-link" do %>
+            <% if current_page?("#") %>
+              <i class="nav-item fa-solid fa-user active"></i>
+              <span class="icon-text">Profile</span>
+            <% else %>
+              <i class="fa-solid fa-user" style="color: #e5b8f4;"></i>
+            <% end %>
+          <% end %>
+        </li>
       </ul>
     <% else %>
       <ul class="navbar-nav">
