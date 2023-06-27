@@ -6,8 +6,7 @@ class PubcrawlsController < ApplicationController
   end
 
   def show
-    #@event = Event.find(pubcrawl_id + date)
-    @booking = Booking.new
+    @event = Event.new
   end
 
   private

@@ -2,7 +2,7 @@ require "date"
 
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :destroy, :update]
-  before_action :set_event, only: [:new, :create]
+  before_action :set_pubcrawl, only: [:new, :create]
 
 
   def index
@@ -13,6 +13,8 @@ class BookingsController < ApplicationController
   end
 
   def create
+    raise
+    @event = Event.find_or_create_by_pubcrawl_and_date(@pubcrawl, booking_params[:date])
     @booking = Booking.new(booking_params)
     @booking.event = @event
     @booking.user = current_user
@@ -41,7 +43,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
-  def set_trip
-    @event = Event.find(params[:event_id])
+  def set_pubcrawl
+    @pubcrawl = Pubcrawl.find(params[:pubcrawl_id])
   end
 end

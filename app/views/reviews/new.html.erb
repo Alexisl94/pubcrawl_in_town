@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>What do you think about this pubcrawl?</h1>
+  <h3>Please write a fee words</h3>
+  <hr>
+  <%= simple_form_for [@event, @review] do |f| %>
+  <%= f.input :comment %>
+  <%= f.input :rating %>
+  <%= f.submit class: "btn btn-outline-dark" %>
+  <% end %>
+  <hr>
+  <%= link_to "return to the event", event_path(@event), class: 'btn btn-dark' %>
+</div>
+
