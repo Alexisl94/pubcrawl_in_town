@@ -3,6 +3,12 @@ class PubcrawlsController < ApplicationController
 
   def index
     @pubcrawls = Pubcrawl.all
+    @markers = @pubcrawls.map do |pubcrawl|
+      {
+        lat: pubcrawl.first_bar.latitude,
+        lng: pubcrawl.first_bar.longitude
+      }
+    end
   end
 
   def show
