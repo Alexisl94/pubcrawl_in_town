@@ -1,0 +1,18 @@
+.card-city {
+  overflow: hidden;
+  background: white;
+  border: 4px solid #C147E9;
+  border-radius: 20px;
+}
+
+.card-city > img {
+  height: 100px;
+  width: 100%;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.card-city h2 {
+  font-size: 16px;
+  text-align: center;
+}
