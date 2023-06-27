@@ -22,6 +22,7 @@ gem "importmap-rails"
 gem "turbo-rails"
 
 gem "cloudinary"
+gem "geocoder"
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"

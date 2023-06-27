@@ -5,9 +5,9 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-# Bar.destroy_all
-# Pubcrawl.destroy_all
-# User.destroy_all
+Pubcrawl.destroy_all
+Bar.destroy_all
+User.destroy_all
 
 user_1 = User.create!( email: "alexis@wagon.fr", password: "aloalo")
 user_1.save
@@ -24,7 +24,7 @@ user_1.save
 bar_1 = Bar.create(name: "Bistro General", description: "At Bistro Général, immerse yourself in the cozy ambiance of a little corner of France with delicious dishes and an exquisite selection of wines.", address: "17 Rue Eugène Sue, 75018 Paris")
 bar_1.save
 
-bar_2 = Bar.create(name: "Dikkenek", description: "Dikkenek transports you to a wild atmosphere with its eclectic decor, captivating music, and original cocktails.", address: "59 Rue Ramey 57, 75018 Paris")
+bar_2 = Bar.create(name: "Dikkenek", description: "Dikkenek transports you to a wild atmosphere with its eclectic decor, captivating music, and original cocktails.", address: "59 Rue Ramey, 75018 Paris")
 bar_2.save
 
 bar_3 = Bar.create(name: "Enkore", description: "At Enkore, indulge in refined gastronomic dishes in a modern and elegant setting, accompanied by a carefully curated wine list.", address: "16 Rue Letort, 75018 Paris")
