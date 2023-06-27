@@ -4,6 +4,7 @@
       <%= render "card", pubcrawl: pubcrawl %>
     <% end %>
   </div>
+  <%= link_to "My bookings", bookings_path, class: 'button-pink-invalid' %>
   <div style="width: 100%; height: 600px;"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
