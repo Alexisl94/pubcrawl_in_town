@@ -9,8 +9,8 @@
 # Pubcrawl.destroy_all
 # User.destroy_all
 
-# user_1 = User.create!(username: "Zorblax", email: "alexis@wagon.fr", password: "aloalo")
-# user_1.save
+user_1 = User.create!( email: "alexis@wagon.fr", password: "aloalo")
+user_1.save
 
 # user_2 = User.create!(username: "Blazor", email: "romain@wagon.fr", password: "aloalo")
 # user_2.save
