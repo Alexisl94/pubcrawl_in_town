@@ -1,2 +1,95 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container p-3">
+  <h1>Pubcrawl in Town</h1>
+  <hr>
+  <h2>Where are you looking to party ?</h2>
+  <div class="cards-city p-30">
+     <div class="row mb-2">
+      <div class="col-6">
+        <%= link_to pubcrawls_path(location: 'Paris') do %>
+          <div class="card-city">
+            <%= image_tag "1969369.png", alt: "Paris" %>
+            <div class="card-city-name">
+              <h2>Paris</h2>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-6">
+        <%= link_to pubcrawls_path(location: 'Madrid') do %>
+          <div class="card-city">
+            <%= image_tag "Holiday.png", alt: "Madrid" %>
+            <div class="card-city-name">
+              <h2>Madrid</h2>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-6">
+        <%= link_to pubcrawls_path(location: 'Berlin') do %>
+          <div class="card-city">
+            <%= image_tag "berlin.jpg", alt: "Berlin" %>
+            <div class="card-city-name">
+              <h2>Berlin</h2>
+            </div>
+          </div>
+        <% end%>
+      </div>
+      <div class="col-6">
+        <%= link_to pubcrawls_path(location: 'Londres') do %>
+          <div class="card-city">
+            <%= image_tag "Holiday.png", alt: "Londres" %>
+            <div class="card-city-name">
+              <h2>Londres</h2>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+     <div class="row mb-2">
+      <div class="col-6">
+        <%= link_to pubcrawls_path(location: 'Seville') do %>
+          <div class="card-city">
+            <%= image_tag "berlin.jpg", alt: "Seville" %>
+            <div class="card-city-name">
+              <h2>Seville</h2>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-6">
+        <%= link_to pubcrawls_path(location: 'Rome') do %>
+          <div class="card-city">
+            <%= image_tag "Holiday.png", alt: "Rome" %>
+            <div class="card-city-name">
+              <h2>Rome</h2>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+     <div class="row">
+      <div class="col-6">
+        <%= link_to pubcrawls_path(location: 'Lisbonne') do %>
+          <div class="card-city">
+            <%= image_tag "berlin.jpg", alt: "Lisbonne" %>
+            <div class="card-city-name">
+              <h2>Lisbonne</h2>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-6">
+        <%= link_to pubcrawls_path(location: 'Bruxelles') do %>
+          <div class="card-city">
+            <%= image_tag "Holiday.png", alt: "Bruxelles" %>
+            <div class="card-city-name">
+              <h2>Bruxelles</h2>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

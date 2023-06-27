@@ -2,7 +2,11 @@ class PubcrawlsController < ApplicationController
   before_action :set_pubcrawl, only: %i[show]
 
   def index
-    @pubcrawls = Pubcrawl.all
+    if params[:location].present?
+      @pubcrawls = Pubcrawl.where(location: params[:location])
+    else
+      @pubcrawls = Pubcrawl.all
+    end
     @markers = @pubcrawls.map do |pubcrawl|
       {
         lat: pubcrawl.first_bar.latitude,
