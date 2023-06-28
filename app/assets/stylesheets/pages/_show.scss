@@ -1,8 +1,9 @@
 
 .img-show {
-  width: 75%;
+  width: 90%;
   border-radius: 20px;
-  margin-top: 50px;
+  margin-top: 30px;
+  border: 1px solid white;
 }
 
 .border {
@@ -13,11 +14,26 @@
 
 .title-pubcrawl-show {
   color: white;
-  margin-top: 25px;
+  margin-top: 20px;
 }
 
 .list-review {
   color: #EDEDED;
   list-style: none;
   font-size: 13px;
+}
+
+.white-label {
+  color: white;
+}
+
+.center-button {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.card-show {
+  height: 60px;
+  width: 120px;
 }
