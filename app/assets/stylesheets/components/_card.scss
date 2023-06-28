@@ -19,12 +19,9 @@
   position: relative;
 }
 .cards-dis{
-  overflow-y: hidden;
-  overflow: scroll;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  overflow-y: scroll;
   margin-top: 5px;
-
+  max-height:45vh;
 }
 
 .deco-none{

@@ -10,7 +10,7 @@
   <div style="display: flex; justify-content: center;">
     <h1 class="title-pubcrawl-show"><%= @pubcrawl.name %></h1>
   </div>
-  <p class="text-center" style="color: #EDEDED; margin: 0 10px 0 10px">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis, accusantium. Voluptate rerum distinctio nesciunt, necessitatibus earum voluptas asperiores qui. Quod.</p>
+  <p class="text-center" style="color: #EDEDED; margin: 0 10px 0 10px"><%= @pubcrawl.description %></p>
   <div style="margin-top: 10px;">
     <p class="text-center" style="color: white; text-decoration: underline; font-size: 20px">Last reviews :</p>
     <ul>
@@ -22,6 +22,7 @@
     </ul>
   </div>
   <hr style="color: white">
+
   <%= simple_form_for [@pubcrawl, @event] do |f| %>
     <%= f.input :date,
                 label: "Select date",

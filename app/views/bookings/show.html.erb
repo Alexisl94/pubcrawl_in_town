@@ -9,7 +9,7 @@
   </div>
   <div style="justify-content: center;" class="button-container">
     <h1><%= @booking.event.pubcrawl.name%></h1>
-    <h1><%= @booking.event.date%></h1>
+    <h1><%= Date.parse(@booking.event.date.to_s) %></h1>
   </div>
  <div style="display: flex; justify-content: center;">
     <div class="border"></div>
