@@ -1,0 +1,27 @@
+.button-pink-valid {
+  color: white;
+  padding: 0.5rem 0.5rem;
+  border-radius: 4px;
+  border: 2px solid white;
+  background: #C147E9;
+  font-weight: bold;
+  text-decoration: none;
+  // display: flex;
+  text-align: center;
+}
+
+.button-pink-invalid {
+  color: white;
+  padding: 0.5rem 0.5rem;
+  border-radius: 4px;
+  border: 2px solid white;
+  background: #E5B8F4;
+  font-weight: bold;
+  text-decoration: none;
+  // display: flex;
+  text-align: center;
+}
+
+.all-buton {
+  display: flex;
+}
