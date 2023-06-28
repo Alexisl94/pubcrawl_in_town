@@ -1,14 +1,23 @@
-<div class="container">
-  <div class="container">
-    <h1><%= @booking.event.pubcrawl.name%></h1>
-    <h3><%= @booking.event.date%></h1>
+
+<br>
+<%= link_to "Back to pubcrawls", pubcrawls_path, class:"button-pink-invalid", style:"margin: 10px 0 0 10px;" %>
+  <div style="display: flex; justify-content: center;">
+    <%= cl_image_tag @booking.event.pubcrawl.photo.key, class:"img-show" %>
   </div>
-<hr>
-  <div class="container">
+  <div style="display: flex; justify-content: center;">
+    <div class="border"></div>
+  </div>
+  <div style="justify-content: center;" class="button-container">
+    <h1><%= @booking.event.pubcrawl.name%></h1>
+    <h1><%= @booking.event.date%></h1>
+  </div>
+ <div style="display: flex; justify-content: center;">
+    <div class="border"></div>
+  </div>
+  <div class="button-container">
     <p>Are you sure you want to book this pubcrawl ? </p>
     <div class="button-container">
       <%= link_to "Lets go !", event_path(@booking.event), class: 'button-pink-valid' %>
       <%= link_to "Not yet !", pubcrawls_path, class: 'button-pink-invalid' %>
       </div>
   </div>
-</div>
