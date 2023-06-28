@@ -4,10 +4,9 @@
   <hr>
   <%= simple_form_for [@event, @review] do |f| %>
   <%= f.input :comment %>
-  <%= f.input :rating %>
-  <%= f.submit class: "btn btn-outline-dark" %>
+  <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"}} %>
+  <%= f.submit "Send your review", class: "btn btn-outline-dark" %>
   <% end %>
   <hr>
   <%= link_to "return to the event", event_path(@event), class: 'btn btn-dark' %>
 </div>
-
