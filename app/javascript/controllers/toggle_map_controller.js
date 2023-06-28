@@ -9,8 +9,7 @@ export default class extends Controller {
 
   displayMap() {
     this.listTarget.classList.toggle("d-none")
-    this.buttonTarget.classList.toggle("btn-outline-dark")
-    this.buttonTarget.classList.toggle("btn-outline-light")
+    this.buttonTarget.classList.toggle("border-bottom")
     this.mapTarget.classList.toggle("d-none")
   }
 }
