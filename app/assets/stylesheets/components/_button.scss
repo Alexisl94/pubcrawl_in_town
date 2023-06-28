@@ -25,3 +25,14 @@
 .all-buton {
   display: flex;
 }
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+
+  a {
+    margin: 5px;
+  }
+}
