@@ -1,1 +1,28 @@
-<%= link_to "All pubcrawls", pubcrawls_path, class: 'button-pink-invalid' %>
+<div class="container" style="margin-bottom: 20px;">
+  <br>
+  <%= link_to "Back to pubcrawls", pubcrawls_path, class:"go-back-button", style:"margin: 10px 0 0 10px;" %>
+  <div style="justify-content: center;" class="button-container">
+    <h1> My bookings </h1>
+  <div class="border"></div>
+</div>
+
+<div class="container" style="margin-bottom: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <%= link_to "Previous", pubcrawls_path, class: 'button-pink-invalid' %>
+      <%= link_to "Upcoming", pubcrawls_path, class: 'button-pink-invalid' %>
+    </div>
+  <div class="border"></div>
+</div>
+
+
+<div>
+  <% @bookings.each do |booking| %>
+    <div class="booking card-city-black-font">
+      <h2><%= booking.event.pubcrawl.name %></h2>
+      <h2>Date: <%= booking.event.date %></h2>
+      <h2>User: <%= booking.user.email %></h2>
+      <%= link_to "More details", event_path(booking.event), class: 'button-pink-invalid' %>
+    </div>
+    <hr>
+  <% end %>
+</div>

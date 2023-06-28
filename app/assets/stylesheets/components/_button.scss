@@ -36,3 +36,15 @@
     margin: 5px;
   }
 }
+
+.go-back-button {
+  color: rgba(255, 207, 230, 0.6);
+  padding: 0.2rem 0.2rem;
+  border-radius: 2px;
+  border: 1px solid rgb(0, 0, 0);
+  background-color: rgba(146, 112, 128, 0.3);
+  font-weight: bold;
+  text-decoration: none;
+  // display: flex;
+  text-align: center;
+}
