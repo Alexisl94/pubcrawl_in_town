@@ -1,9 +1,9 @@
 .navbar-lewagon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
   background: #2D033B;
-  position: fixed;
+  position: fixed !important;
   bottom: 0;
   left: 0;
   width: 100%;
