@@ -5,11 +5,13 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+require "open-uri"
+
 Pubcrawl.destroy_all
 Bar.destroy_all
 User.destroy_all
 
-user_1 = User.create!( email: "alexis@wagon.fr", password: "aloalo")
+user_1 = User.create!(email: "alexis@wagon.fr", password: "aloalo")
 user_1.save
 
 # user_2 = User.create!(username: "Blazor", email: "romain@wagon.fr", password: "aloalo")
@@ -66,18 +68,27 @@ bar_14.save
 bar_15 = Bar.create(name: "La bodega", description: "Immerse yourself in the cozy atmosphere of La Bodega, where you can enjoy traditional Spanish tapas and a selection of fine wines.", address: "Calle Alfalfa, 3, 41004 Sevilla, Espagne")
 bar_15.save
 
+file = URI.open("https://res.cloudinary.com/dgu6zhgkn/image/upload/v1687877455/photo-1566417713940-fe7c737a9ef2_inmchw.jpg")
+pubcrawl = Pubcrawl.create(name: "Pubcrawl Paris 18", description: "Explore the vibrant nightlife of Paris with our Super Pubcrawl, where you'll visit the trendiest bars in the Marais district, sip delicious cocktails, and dance the night away.", location: "Paris", category: "Night fever", nb_max: 50, first_bar: bar_1, middle_bar: bar_2, last_bar: bar_3)
+pubcrawl.photo.attach(io: file, filename: "pubc1.png", content_type: "image/jpg")
+pubcrawl.save
 
-pubcrawl_1 = Pubcrawl.create(name: "Pubcrawl Paris 18", description: "Explore the vibrant nightlife of Paris with our Super Pubcrawl, where you'll visit the trendiest bars in the Marais district, sip delicious cocktails, and dance the night away.", location: "Paris", category: "Night fever", nb_max: 50, first_bar: bar_1, middle_bar: bar_2, last_bar: bar_3)
-pubcrawl_1.save
+file = URI.open("https://res.cloudinary.com/dgu6zhgkn/image/upload/v1687877418/photo-1576661929310-a29e8fc38c7f_ps6z8c.jpg")
+pubcrawl = Pubcrawl.create(name: "Pubcrawl Paris 9", description: "Join our exhilarating Super Pubcrawl through the lively Latin Quarter in Paris, where you'll experience an unforgettable evening of bar-hopping, meeting fellow travelers, and enjoying a mix of music genres.", location: "Paris", category: "Night fever", nb_max: 40, first_bar: bar_4, middle_bar: bar_5, last_bar: bar_6)
+pubcrawl.photo.attach(io: file, filename: "pubc2.png", content_type: "image/jpg")
+pubcrawl.save
 
-pubcrawl_2 = Pubcrawl.create(name: "Pubcrawl Paris 9", description: "Join our exhilarating Super Pubcrawl through the lively Latin Quarter in Paris, where you'll experience an unforgettable evening of bar-hopping, meeting fellow travelers, and enjoying a mix of music genres.", location: "Paris", category: "Night fever", nb_max: 40, first_bar: bar_4, middle_bar: bar_5, last_bar: bar_6)
-pubcrawl_2.save
+file = URI.open("https://res.cloudinary.com/dgu6zhgkn/image/upload/v1687877550/photo-1575444758702-4a6b9222336e_kynuea.jpg")
+pubcrawl = Pubcrawl.create(name: "Pubcrawl Paris 11", description: "Embark on a thrilling Super Pubcrawl in the bustling neighborhood of Bastille in Paris, where you'll discover hidden gem bars, indulge in local drinks, and make memories with new friends from around the world.", location: "Paris", category: "Chill", nb_max: 20, first_bar: bar_7, middle_bar: bar_8, last_bar: bar_9)
+pubcrawl.photo.attach(io: file, filename: "pubc3.png", content_type: "image/jpg")
+pubcrawl.save
 
-pubcrawl_3= Pubcrawl.create(name: "Pubcrawl Paris 11", description: "Embark on a thrilling Super Pubcrawl in the bustling neighborhood of Bastille in Paris, where you'll discover hidden gem bars, indulge in local drinks, and make memories with new friends from around the world.", location: "Paris", category: "Chill", nb_max: 20, first_bar: bar_7, middle_bar: bar_8, last_bar: bar_9)
-pubcrawl_3.save
+file = URI.open("https://res.cloudinary.com/dgu6zhgkn/image/upload/v1687877431/photo-1569924995012-c4c706bfcd51_hyhich.jpg")
+pubcrawl = Pubcrawl.create(name: "Pubcrawl Seville Alameda", description: "Experience the pulsating energy of Seville with our Super Pubcrawl, taking you through the enchanting streets of Alfalfa and Alameda neighborhoods, immersing you in the vibrant local nightlife scene.", location: "Seville", category: "Chill", nb_max: 100, first_bar: bar_10, middle_bar: bar_11, last_bar: bar_12)
+pubcrawl.photo.attach(io: file, filename: "pubc4.png", content_type: "image/jpg")
+pubcrawl.save
 
-pubcrawl_4 = Pubcrawl.create(name: "Pubcrawl Seville Alameda", description: "Experience the pulsating energy of Seville with our Super Pubcrawl, taking you through the enchanting streets of Alfalfa and Alameda neighborhoods, immersing you in the vibrant local nightlife scene.", location: "Seville", category: "Chill", nb_max: 100, first_bar: bar_10, middle_bar: bar_11, last_bar: bar_12)
-pubcrawl_4.save
-
-pubcrawl_5 = Pubcrawl.create(name: "Pubcrawl Seville Alfalfa", description: "Join our unforgettable Super Pubcrawl in Seville, where you'll dive into the lively atmosphere of the city's historic center, visit authentic tapas bars, and dance the night away to traditional flamenco beats.", location: "Seville", category: "Night fever", nb_max: 25, first_bar: bar_13, middle_bar: bar_14, last_bar: bar_15)
-pubcrawl_5.save
+file = URI.open("https://res.cloudinary.com/dgu6zhgkn/image/upload/v1687877472/photo-1590423859012-39c5ee2845bd_mbv1hb.jpg")
+pubcrawl = Pubcrawl.create(name: "Pubcrawl Seville Alfalfa", description: "Join our unforgettable Super Pubcrawl in Seville, where you'll dive into the lively atmosphere of the city's historic center, visit authentic tapas bars, and dance the night away to traditional flamenco beats.", location: "Seville", category: "Night fever", nb_max: 25, first_bar: bar_13, middle_bar: bar_14, last_bar: bar_15)
+pubcrawl.photo.attach(io: file, filename: "pubc5.png", content_type: "image/jpg")
+pubcrawl.save
