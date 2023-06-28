@@ -1,22 +1,31 @@
 <div class="container">
-  <h1><%= @pubcrawl.name %></h1>
-  <div>
-    <p>Last reviews :</p>
+  <div style="display: flex; justify-content: center;">
+    <img src="https://images.unsplash.com/photo-1575444758702-4a6b9222336e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cHVifGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" class="img-show" alt="...">
+  </div>
+  <div style="display: flex; justify-content: center;">
+    <div class="border"></div>
+  </div>
+  <div style="display: flex; justify-content: center;">
+    <h1 class="title-pubcrawl-show"><%= @pubcrawl.name %></h1>
+  </div>
+  <p class="text-center" style="color: #EDEDED; margin: 0 10px 0 10px">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis, accusantium. Voluptate rerum distinctio nesciunt, necessitatibus earum voluptas asperiores qui. Quod.</p>
+  <div style="margin-top: 20px;">
+    <p class="text-center" style="color: white;">Last reviews :</p>
     <ul>
       <% @pubcrawl.reviews.each do |review|%>
-      <li>
+      <li class="list-review">
         <p><strong> <%= review.rating %> / 10 - </strong><%= review.comment %></p>
       </li>
       <% end %>
     </ul>
   </div>
-  <hr>
+  <hr style="color: white">
   <%= simple_form_for [@pubcrawl, @event] do |f| %>
     <%= f.input :date,
                 label: "Select date",
                 as: :string,
                 input_html: {data: { controller: "datepicker"} } %>
-    <%= f.submit class: "button-pink-valid" %>
+    <%= f.submit "Join Event", class: "button-pink-valid" %>
   <% end %>
   <%= link_to "Back to pubcrawls", pubcrawls_path, class:"button-pink-invalid" %>
 </div>

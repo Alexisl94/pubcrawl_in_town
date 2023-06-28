@@ -1,1 +1,23 @@
 // Specific CSS for your home-page
+
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Inline&family=Montserrat:wght@300;400;700&family=Roboto:ital,wght@0,300;0,700;1,100;1,300&display=swap');
+
+h1 {
+  font-family: 'Bungee', cursive;
+  color: white;
+}
+
+h2 {
+  font-family: 'Bungee Inline', cursive;
+}
+
+p {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+}
+body {
+  // background-image: linear-gradient(45deg, rgb(45,3,59),rgb(129,12,168),rgb(229,184,244));
+  background-image: radial-gradient(circle at center center, rgb(129,12,168),rgb(45,3,59));
+  background-repeat: no-repeat;
+  height: 100vh;
+}
