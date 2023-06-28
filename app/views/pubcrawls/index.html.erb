@@ -1,3 +1,7 @@
+<%= form_with url: pubcrawls_path, method: :get, class: "d-flex" do |form| %>
+  <%= select_tag "location", raw("<option value='Paris' #{'selected' if params[:location] == 'Paris'}>Paris</option><option value='Seville' #{'selected' if params[:location] == 'Seville'}>Seville</option>"), class: "form-control select required", onchange: "this.form.submit();" %>
+<% end %>
+<br>
 <div id=content-container>
 <div class="container" data-controller="toggle-map">
   <div id="carouselExampleAutoplaying" class="carousel slide content-container" data-bs-ride="carousel" data-toggle-map-target="list">
@@ -28,10 +32,10 @@
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
   data-toggle-map-target="map"
   class="d-none">
-  </div>
-  <div id="toggle-map" data-action="click->toggle-map#displayMap" data-toggle-map-target="button" class="btn btn-outline-dark">
-    <i class="fa-solid fa-map"></i>
-  </div>
-  <%= link_to "My bookings", bookings_path, class: 'button-pink-invalid' %>
+</div>
+<div id="toggle-map" data-action="click->toggle-map#displayMap" data-toggle-map-target="button" class="btn btn-outline-dark">
+  <i class="fa-solid fa-map"></i>
+</div>
+<%= link_to "My bookings", bookings_path, class: 'button-pink-invalid' %>
 </div>
 
