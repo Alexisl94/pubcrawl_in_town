@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
+// import { useWindowResize } from 'stimulus-use'
 import mapboxgl from 'mapbox-gl' // Don't forget this!
 
 export default class extends Controller {
@@ -13,7 +14,8 @@ export default class extends Controller {
     this.map = new mapboxgl.Map({
       container: this.element,
       style: 'mapbox://styles/mapbox/dark-v11',
-      zoom: 1
+      zoom: 1,
+      resize: true
     })
 
     this.#addMarkersToMap()
@@ -22,8 +24,12 @@ export default class extends Controller {
 
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
-      new mapboxgl.Marker()
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
+      const customMarker = document.createElement("div")
+      customMarker.innerHTML = marker.marker_html
+      new mapboxgl.Marker(customMarker)
         .setLngLat([ marker.lng, marker.lat ])
+        .setPopup(popup)
         .addTo(this.map)
     })
   }
