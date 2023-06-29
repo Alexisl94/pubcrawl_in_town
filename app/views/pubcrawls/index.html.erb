@@ -11,6 +11,7 @@
     </div>
   </div>
   <hr style="color: white">
+</div>
   <div id="carouselExampleAutoplaying" class="carousel slide content-container" data-bs-ride="carousel" data-toggle-map-target="list">
     <div class="carousel-inner ">
       <% @pubcrawls.each_with_index do |pubcrawl, index| %>
@@ -19,18 +20,11 @@
       </div>
       <% end %>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-    <div class="cards-dis" >
-       <% @pubcrawls.each do |pubcrawl| %>
-       <%= render "card", pubcrawl: pubcrawl %>
-       <% end %>
+  </div>
+  <div class="cards-dis" >
+      <% @pubcrawls.each do |pubcrawl| %>
+        <%= render "pubcard", pubcrawl: pubcrawl %>
+      <% end %>
     </div>
   </div>
    <div style="width: 100% ; height: 600px; margin-top: 15px; border: 0.5px solid white; border-radius: 15px;"

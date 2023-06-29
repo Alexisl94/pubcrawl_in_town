@@ -1,0 +1,29 @@
+
+<a href="<%= pubcrawl_path(pubcrawl) %>" class="deco-none">
+  <div class="container">
+      <div class="wrapper">
+            <div class="profile-top" style="background-image: url('<%= cl_image_path pubcrawl.photo.key, crop: :fill %>')">
+          </div>
+
+          <div class="profile-bottom">
+            <div class="profile-infos">
+              <div class="main-infos">
+                <h3 class="name"><%= pubcrawl.name %></h3>
+              </div>
+            </div>
+
+            <div class="profile-stats">
+              <div class="stat-item">
+                <p class="stat"><%= pubcrawl.location %></p>
+              </div>
+              <div class="stat-item">
+                <p class="stat"><%= pubcrawl.category %></p>
+              </div>
+              <div class="stat-item">
+                <p class="stat"><%= pubcrawl.nb_max %>  <i class="fa-solid fa-user-group"></i></p>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </a>
