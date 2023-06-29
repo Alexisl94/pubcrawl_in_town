@@ -4,7 +4,6 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :destroy, :update]
   before_action :set_pubcrawl, only: [:new, :create]
 
-
   def index
     @bookings = Booking.all
   end

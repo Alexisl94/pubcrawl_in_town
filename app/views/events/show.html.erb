@@ -1,6 +1,9 @@
+
 <div class="container">
   <h1><%= @event.pubcrawl.name%></h1>
   <h4 style="color: white"><%= @event.date%></h1>
+  <h4><%= @event.date%></h1>
+  <p> <%= @event.chatroom.name %></p>
   <hr style="color: white">
   <h2 style="color: white"> LIVE EVENT</h2>
   <h3 style="color: white"> Notifications </h3>
@@ -35,4 +38,3 @@
     <%= link_to "Give a review", new_event_review_path(@event), class:"button-pink-invalid" %>
     </div>
   </div>
-</div>

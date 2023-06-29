@@ -1,0 +1,30 @@
+  <p>Members</p>
+  <ul>
+    <% @event.users.each do |user| %>
+      <li><%= user.email %></li>
+    <%end%>
+  </ul>
+  <hr style="color: white">
+  <div>
+    <p>Last reviews :</p>
+    <div>
+      <% @event.reviews.each do |review| %>
+        <div>
+          <% review.rating.times do %>
+            <i class="fas fa-star" style="color: #fbff00;"></i>
+          <% end %>
+          <% (5 - review.rating).times do %>
+            <i class="far fa-star"></i>
+          <% end %>
+          <p style="font-size: 15px"><%= review.comment %></p>
+          <hr style="color: white">
+        </div>
+      <% end %>
+    </div>
+    <div class="all-buton">
+    <%= link_to "All pubcrawls", pubcrawls_path, class: 'button-pink-invalid' %>
+    <%= link_to "My bookings", bookings_path, class: 'button-pink-invalid' %>
+    <%= link_to "Give a review", new_event_review_path(@event), class:"button-pink-invalid" %>
+    </div>
+  </div>
+</div>
