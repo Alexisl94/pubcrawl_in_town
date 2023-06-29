@@ -11,17 +11,17 @@ Pubcrawl.destroy_all
 Bar.destroy_all
 User.destroy_all
 
-user_1 = User.create!(email: "alexis@wagon.fr", password: "aloalo")
-user_1.save
+user = User.create!(email: "alexis@wagon.fr", nickname: "alexis", password: "aloalo")
+user.save
 
-# user_2 = User.create!(username: "Blazor", email: "romain@wagon.fr", password: "aloalo")
-# user_2.save
+user = User.create!(email: "romain@wagon.fr", nickname: "romain", password: "aloalo")
+user.save
 
-# user_3 = User.create!(username: "Zorg", email: "quentin@wagon.fr", password: "aloalo")
-# user_3.save
+user = User.create!(email: "quentin@wagon.fr", nickname: "quentin", password: "aloalo")
+user.save
 
-# user_4 = User.create!(username: "Nebulox", email: "arthur@wagon.fr", password: "aloalo")
-# user_4.save
+user = User.create!(email: "arthur@wagon.fr", nickname: "arthur", password: "aloalo")
+user.save
 
 bar_1 = Bar.create(name: "Bistro General", description: "At Bistro Général, immerse yourself in the cozy ambiance of a little corner of France with delicious dishes and an exquisite selection of wines.", address: "17 Rue Eugène Sue, 75018 Paris")
 bar_1.save

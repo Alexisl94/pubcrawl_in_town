@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   end
   resources :bookings
   resources :events do
-    resources :reviews, only: [:new, :create]
+    resources :reviews, only: %i[new create index]
+    resources :chatrooms, only: :show
+  end
+  resources :chatrooms do
+    resources :messages, only: :create
   end
 end
