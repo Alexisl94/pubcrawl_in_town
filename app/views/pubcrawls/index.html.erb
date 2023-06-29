@@ -4,7 +4,7 @@
     <div class="row px-2">
       <div class="col-10">
         <%= form_with url: pubcrawls_path, method: :get, class: "d-flex" do |form| %>
-        <%= select_tag "location", raw("<option value='Paris' #{'selected' if params[:location] == 'Paris'}>Paris</option><option value='Seville' #{'selected' if params[:location] == 'Seville'}>Seville</option>"), class: "form-control select required", onchange: "this.form.submit();" %>
+        <%= select_tag "location", raw("<option value='Paris' #{'selected' if params[:location] == 'Paris'}>Paris</option><option value='Seville' #{'selected' if params[:location] == 'Seville'}>Seville</option>"), prompt: "All cities", class: "form-control select required", onchange: "this.form.submit();" %>
         <% end %>
       </div>
       <div data-action="click->toggle-map#displayMap" data-toggle-map-target="button" class="col-2 d-flex align-items-center justify-content-center border-3 border-light">
@@ -39,11 +39,11 @@
       <% end %>
     </div>
   <div class="container">
-    <div
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-  data-toggle-map-target="map" class="d-none"></div>
+    <div id="map"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+    data-toggle-map-target="map" class="d-none"></div>
   </div>
   <br>
   <br>
