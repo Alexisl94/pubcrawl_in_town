@@ -1,28 +1,34 @@
 <div class="container">
   <h1><%= @event.pubcrawl.name%></h1>
   <h4><%= @event.date%></h1>
-  <hr>
+  <hr style="color: white">
   <h2> LIVE EVENT</h2>
   <h3> Notifications </h3>
   <%= link_to "Come back a 9 pm !", pubcrawls_path, class: 'button-pink-valid' %>
-  <hr>
+  <hr style="color: white">
   <p>Members</p>
   <ul>
     <% @event.users.each do |user| %>
       <li><%= user.email %></li>
     <%end%>
   </ul>
-  <hr>
+  <hr style="color: white">
   <div>
     <p>Last reviews :</p>
-    <ul>
-      <% @event.reviews.each do |review|%>
-      <li>
-        <p><strong> <%= review.rating %> / 10 - </strong><%= review.comment %></p>
-      </li>
+    <div>
+      <% @event.reviews.each do |review| %>
+        <div>
+          <% review.rating.times do %>
+            <i class="fas fa-star" style="color: #fbff00;"></i>
+          <% end %>
+          <% (5 - review.rating).times do %>
+            <i class="far fa-star"></i>
+          <% end %>
+          <p style="font-size: 15px"><%= review.comment %></p>
+          <hr style="color: white">
+        </div>
       <% end %>
-    </ul>
-    <hr>
+    </div>
     <div class="all-buton">
     <%= link_to "All pubcrawls", pubcrawls_path, class: 'button-pink-invalid' %>
     <%= link_to "My bookings", bookings_path, class: 'button-pink-invalid' %>
