@@ -3,47 +3,36 @@
     <br>
     <div class="row px-2">
       <div class="col-10">
-        <%= form_with url: pubcrawls_path, method: :get, class: "d-flex" do |form| %>
-        <%= select_tag "location", raw("<option value='Paris' #{'selected' if params[:location] == 'Paris'}>Paris</option><option value='Seville' #{'selected' if params[:location] == 'Seville'}>Seville</option>"), prompt: "All cities", class: "form-control select required", onchange: "this.form.submit();" %>
+        <%= form_with(url: pubcrawls_path, method: :get, class: "d-flex") do |form| %>
+          <%= select_tag "location", raw("<option value='Paris' #{'selected' if params[:location] == 'Paris'}>Paris</option><option value='Seville' #{'selected' if params[:location] == 'Seville'}>Seville</option>"), prompt: "All cities", class: "form-control select required", onchange: "this.form.submit();" %>
         <% end %>
       </div>
       <div data-action="click->toggle-map#displayMap" data-toggle-map-target="button" class="col-2 d-flex align-items-center justify-content-center border-3 border-light">
         <i class="fa-solid fa-map" style="color:white"></i>
       </div>
     </div>
-    <hr style="color: white">
   </div>
   <hr style="color: white">
-  </div>
-        <h2 style="margin-left: 15px; color: white; margin-bottom: 0px;">Best rated</h2>
-  <div id="carouselExampleAutoplaying" class="carousel slide content-container" data-bs-ride="carousel" data-toggle-map-target="list">
-    <div class="carousel-inner ">
-      <% @pubcrawls.each_with_index do |pubcrawl, index| %>
-      <div class="carousel-item  <%= 'active' if index == 0 %>">
-        <%= render "card", pubcrawl: pubcrawl %>
+  <h2 style="margin-left: 15px; color: white; margin-bottom: 0px;">Best rated</h2>
   <div data-toggle-map-target="list">
     <div id="carouselExampleAutoplaying" class="carousel slide content-container" data-bs-ride="carousel">
-      <div class="carousel-inner ">
+      <div class="carousel-inner">
         <% @pubcrawls.each_with_index do |pubcrawl, index| %>
-        <div class="carousel-item  <%= 'active' if index == 0 %>">
-          <%= render "card", pubcrawl: pubcrawl %>
-        </div>
+          <div class="carousel-item <%= 'active' if index == 0 %>">
+            <%= render "card", pubcrawl: pubcrawl %>
+          </div>
         <% end %>
       </div>
     </div>
-  </div>
-  <h2 style="margin-left: 15px; color: white; margin-bottom: 0px;"><%= @title %></h2>
-    <div class="cards-dis" >
+    <h2 style="margin-left: 15px; color: white; margin-bottom: 0px;"><%= @title %></h2>
+    <div class="cards-dis">
       <% @pubcrawls.each do |pubcrawl| %>
-      <%= render "pubcard", pubcrawl: pubcrawl %>
+        <%= render "pubcard", pubcrawl: pubcrawl %>
       <% end %>
     </div>
+  </div>
   <div class="container">
-    <div id="map"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-    data-toggle-map-target="map" class="d-none"></div>
+    <div id="map" data-controller="map" data-map-markers-value="<%= @markers.to_json %>" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" data-toggle-map-target="map" class="d-none"></div>
   </div>
   <br>
   <br>
