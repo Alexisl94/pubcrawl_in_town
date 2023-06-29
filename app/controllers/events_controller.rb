@@ -3,12 +3,14 @@ class EventsController < ApplicationController
   before_action :set_pubcrawl, only: [:create]
 
   def show
+    @chatroom = @event.chatroom
+    @message = Message.new
   end
 
   def create
     @event = Event.find_or_create_by(pubcrawl: @pubcrawl, date: event_params[:date])
     if @event.chatroom.nil?
-      @chatroom = Chatroom.create!(name: "my event")
+      @chatroom = Chatroom.create!(name: "#{@event.pubcrawl.name}_#{@event.date}")
       @event.chatroom = @chatroom
       @event.save
     end
