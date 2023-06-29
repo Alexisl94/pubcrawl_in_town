@@ -13,6 +13,14 @@
     </div>
     <hr style="color: white">
   </div>
+  <hr style="color: white">
+  </div>
+        <h2 style="margin-left: 15px; color: white; margin-bottom: 0px;">Best rated</h2>
+  <div id="carouselExampleAutoplaying" class="carousel slide content-container" data-bs-ride="carousel" data-toggle-map-target="list">
+    <div class="carousel-inner ">
+      <% @pubcrawls.each_with_index do |pubcrawl, index| %>
+      <div class="carousel-item  <%= 'active' if index == 0 %>">
+        <%= render "card", pubcrawl: pubcrawl %>
   <div data-toggle-map-target="list">
     <div id="carouselExampleAutoplaying" class="carousel slide content-container" data-bs-ride="carousel">
       <div class="carousel-inner ">
@@ -23,12 +31,13 @@
         <% end %>
       </div>
     </div>
+  </div>
+  <h2 style="margin-left: 15px; color: white; margin-bottom: 0px;"><%= @title %></h2>
     <div class="cards-dis" >
       <% @pubcrawls.each do |pubcrawl| %>
       <%= render "pubcard", pubcrawl: pubcrawl %>
       <% end %>
     </div>
-  </div>
   <div class="container">
     <div id="map"
     data-controller="map"
@@ -36,6 +45,9 @@
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
     data-toggle-map-target="map" class="d-none"></div>
   </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 </div>
-
-
