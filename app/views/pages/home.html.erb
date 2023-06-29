@@ -1,17 +1,17 @@
 <div class="container p-3">
-  <h1 style="font-weight: 900;">PUBCRAWL IN TOWN</h1>
-  <hr>
   <a href="https://zupimages.net/viewer.php?id=23/26/18io.png"><img src="https://zupimages.net/up/23/26/18io.png" alt="" class="logo-home"/></a>
+  <h1 style="font-weight: 900; text-align: center">PUBCRAWL IN TOWN</h1>
   <hr style="color: white">
-  <h2 style="color: white">Where are you looking to party ?</h2>
-  <div class="cards-city p-30">
+  <h2 style="font-weight: 600; text-align: center; color: white">Where are you looking to party ?</h2>
+  <hr>
+  <div class="cards-city p-30 mb-5">
     <div class="row mb-2">
       <div class="col-6">
         <%= link_to pubcrawls_path(location: 'Paris'), style: "text-decoration: none" do %>
           <div class="card-city">
             <%= image_tag "icons8-eiffel-tower-100.png", alt: "Paris" %>
             <div class="card-city-name">
-              <h2>Paris</h2>
+              <h2 style="font-weight: 600">Paris</h2>
             </div>
           </div>
         <% end %>
@@ -21,7 +21,7 @@
           <div class="card-city">
             <%= image_tag "icons8-holiday-100.png", alt: "Madrid" %>
             <div class="card-city-name">
-              <h2>Madrid</h2>
+              <h2 style="font-weight: 600">Madrid</h2>
             </div>
           </div>
         <% end %>
@@ -29,21 +29,21 @@
     </div>
     <div class="row mb-2">
       <div class="col-6">
-        <%= link_to pubcrawls_path(location: 'Barcelone'), style: "text-decoration: none" do %>
+        <%= link_to pubcrawls_path(location: 'Barcelona'), style: "text-decoration: none" do %>
           <div class="card-city">
-            <%= image_tag "icons8-beach-volleyball-100.png", alt: "Barcelone" %>
+            <%= image_tag "icons8-beach-volleyball-100.png", alt: "Barcelona" %>
             <div class="card-city-name">
-              <h2>Berlin</h2>
+              <h2 style="font-weight: 600">Barcelona</h2>
             </div>
           </div>
         <% end%>
       </div>
       <div class="col-6">
-        <%= link_to pubcrawls_path(location: 'Londres'), style: "text-decoration: none" do %>
+        <%= link_to pubcrawls_path(location: 'London'), style: "text-decoration: none" do %>
           <div class="card-city">
-            <%= image_tag "icons8-big-ben-100.png", alt: "Londres" %>
+            <%= image_tag "icons8-big-ben-100.png", alt: "London" %>
             <div class="card-city-name">
-              <h2>Londres</h2>
+              <h2 style="font-weight: 600">London</h2>
             </div>
           </div>
         <% end %>
@@ -55,17 +55,17 @@
           <div class="card-city">
             <%= image_tag "icons8-tapas-100.png", alt: "Seville" %>
             <div class="card-city-name">
-              <h2>Seville</h2>
+              <h2 style="font-weight: 600">Sevilla</h2>
             </div>
           </div>
         <% end %>
       </div>
       <div class="col-6">
-        <%= link_to pubcrawls_path(location: 'Rome') do %>
+        <%= link_to pubcrawls_path(location: 'Berlin') do %>
           <div class="card-city">
-            <%= image_tag "icons8-pizza-100.png", alt: "Rome" %>
+            <%= image_tag "icons8-pizza-100.png", alt: "Berlin" %>
             <div class="card-city-name">
-              <h2>Rome</h2>
+              <h2 style="font-weight: 600">Berlin</h2>
             </div>
           </div>
         <% end %>
