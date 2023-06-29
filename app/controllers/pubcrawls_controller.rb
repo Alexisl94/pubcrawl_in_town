@@ -9,6 +9,7 @@ class PubcrawlsController < ApplicationController
       @pubcrawls = Pubcrawl.all
       @title = "Discover all our pubcrawls"
     end
+    @pubshuffle = @pubcrawls.shuffle
     @markers = @pubcrawls.map do |pubcrawl|
       {
         lat: pubcrawl.first_bar.latitude,

@@ -1,18 +1,16 @@
 .chatroom {
-  background: white;
+  background: rgba(0,0,0,0.5);
+  color:white !important;
   margin-top: 9px;
-  height: calc(100vh - 75px);
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
   color: black;
-
-  h1 {
-    border-bottom: 1px solid $gray-200;
-    margin-bottom: 0;
-    padding: 1rem;
-  }
+  max-height: 300px;
+  overflow-y: scroll;
+  border-radius: 15px;
 
   .messages {
     height: 100%;

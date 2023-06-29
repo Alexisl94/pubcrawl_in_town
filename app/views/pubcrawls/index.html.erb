@@ -4,7 +4,7 @@
     <div class="row px-2">
       <div class="col-10">
         <%= form_with(url: pubcrawls_path, method: :get, class: "d-flex") do |form| %>
-          <%= select_tag "location", raw("<option value='Paris' #{'selected' if params[:location] == 'Paris'}>Paris</option><option value='Seville' #{'selected' if params[:location] == 'Seville'}>Seville</option>"), prompt: "All cities", class: "form-control select required", onchange: "this.form.submit();" %>
+          <%= select_tag "location", raw("<option value='Paris' #{'selected' if params[:location] == 'Paris'}>Paris</option><option value='Seville' #{'selected' if params[:location] == 'Seville'}>Seville</option><option value='Madrid' #{'selected' if params[:location] == 'Madrid'}>Madrid</option><option value='Barcelona' #{'selected' if params[:location] == 'Barcelona'}>Barcelona</option><option value='London' #{'selected' if params[:location] == 'London'}>London</option><option value='Berlin' #{'selected' if params[:location] == 'Berlin'}>Berlin</option>"), prompt: "All cities", class: "form-control select required", onchange: "this.form.submit();" %>
         <% end %>
       </div>
       <div data-action="click->toggle-map#displayMap" data-toggle-map-target="button" class="col-2 d-flex align-items-center justify-content-center border-3 border-light">
@@ -26,9 +26,9 @@
     </div>
     <h2 style="margin-left: 15px; color: white; margin-bottom: 0px;"><%= @title %></h2>
     <div class="cards-dis">
-      <% @pubcrawls.each do |pubcrawl| %>
-        <%= render "pubcard", pubcrawl: pubcrawl %>
-      <% end %>
+        <% @pubshuffle.each do |pubcrawl|  %>
+          <%= render "pubcard", pubcrawl: pubcrawl %>
+        <% end %>
     </div>
   </div>
   <div class="container">
