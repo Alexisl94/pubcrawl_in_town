@@ -12,7 +12,8 @@ class PubcrawlsController < ApplicationController
     @markers = @pubcrawls.map do |pubcrawl|
       {
         lat: pubcrawl.first_bar.latitude,
-        lng: pubcrawl.first_bar.longitude
+        lng: pubcrawl.first_bar.longitude,
+        marker_html: render_to_string(partial: "marker", locals: {pubcrawl: pubcrawl})
       }
     end
   end
