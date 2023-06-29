@@ -26,9 +26,9 @@
     </div>
     <h2 style="margin-left: 15px; color: white; margin-bottom: 0px;"><%= @title %></h2>
     <div class="cards-dis">
-      <% @pubcrawls.each do |pubcrawl| %>
-        <%= render "pubcard", pubcrawl: pubcrawl %>
-      <% end %>
+        <% @pubshuffle.each do |pubcrawl|  %>
+          <%= render "pubcard", pubcrawl: pubcrawl %>
+        <% end %>
     </div>
   </div>
   <div class="container">
