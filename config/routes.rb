@@ -7,9 +7,8 @@ Rails.application.routes.draw do
   resources :bookings
   resources :events do
     resources :reviews, only: %i[new create index]
-    resources :chatrooms, only: :show
-  end
-  resources :chatrooms do
-    resources :messages, only: :create
+    resources :chatrooms, only: :show do
+      resources :messages, only: :create
+    end
   end
 end
