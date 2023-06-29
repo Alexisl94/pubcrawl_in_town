@@ -1,0 +1,32 @@
+.live-event-banner {
+  height: 50px;
+  width: 100%;
+  background-color: #E5B8F4;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.red-point {
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+}
+
+.notifications-container {
+  width: 90%;
+  height: 500px;
+  background-color: lightgrey;
+  margin-top: 15px;
+  border-radius: 5px;
+}
+
+.notifications-container {
+  position: relative;
+}
+
+.notifications-container .btn-chat {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
