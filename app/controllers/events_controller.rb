@@ -7,6 +7,11 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.find_or_create_by(pubcrawl: @pubcrawl, date: event_params[:date])
+    if @event.chatroom.nil?
+      @chatroom = Chatroom.create!(name: "my event")
+      @event.chatroom = @chatroom
+      @event.save
+    end
     @booking = Booking.new
     @booking.event = @event
     @booking.user = current_user

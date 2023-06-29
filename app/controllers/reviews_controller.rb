@@ -1,5 +1,9 @@
 class ReviewsController < ApplicationController
-  before_action :set_event, only: [:new, :create]
+  before_action :set_event, only: %i[new create index]
+
+  def index
+    @reviews = Review.all
+  end
 
   def new
     @review = Review.new
