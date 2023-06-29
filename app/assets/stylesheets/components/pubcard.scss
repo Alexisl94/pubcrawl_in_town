@@ -3,10 +3,11 @@
   background-color: rgba(0, 0, 0, 0.267);
   border-radius: 15px;
   overflow: hidden;
-   box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
     rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
   margin: 20px;
+  box-shadow: 4px 5px 4px -4px #000000;
 }
 
 .grey {
@@ -44,14 +45,20 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   width: 100%;
-  padding-top: 20px;
+  padding-top: 7px;
+  align-items: center;
 }
 
-.stat-item:not(:last-child) {
+.stat-item {
   border-right: 1px solid rgba(255, 0, 221, 0.7);
+  border-left: 1px solid rgba(255, 0, 221, 0.7);
 }
 
 .stat {
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 300;
+}
+
+.border-shadow-black {
+  box-shadow: 4px 5px 4px -4px #000000;
 }

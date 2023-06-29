@@ -9,17 +9,18 @@
   display: flex;
   height: 150px;
   font-size: 20px;
-  margin-top: 5px;
+  // margin-top: 5px;
   border-radius: 5px;
-  box-shadow: -1px -1px 4px white;
-  margin-left: 5%;
-  margin-right: 5% ;
+  box-shadow: 1px 1px 10px 1px #FFFFFF;
+  // margin-left: 5%;
+  // margin-right: 5% ;
   position: relative;
+  margin: 20px;
 }
 .cards-dis{
   overflow-y: scroll;
   margin-top: 5px;
-  max-height: 50vh;
+  max-height: 60vh;
 }
 
 .deco-none{

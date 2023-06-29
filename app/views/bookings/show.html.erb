@@ -1,8 +1,8 @@
 
 <br>
-<%= link_to "Back to pubcrawls", pubcrawls_path, class:"go-back-button", style:"margin: 10px 0 0 10px;" %>
+<%= link_to "Back to pubcrawls", pubcrawls_path, class:"go-back-button", style:"margin: 15px 0 0 15px;" %>
   <div style="display: flex; justify-content: center;">
-    <%= cl_image_tag @booking.event.pubcrawl.photo.key, class:"img-show" %>
+    <%= cl_image_tag @booking.event.pubcrawl.photo.key, class:"img-show", style:"margin-top: 70px" %>
   </div>
   <div style="display: flex; justify-content: center;">
     <div class="border"></div>
@@ -15,9 +15,9 @@
     <div class="border"></div>
   </div>
   <div class="button-container">
-    <p>Are you sure you want to book this pubcrawl ? </p>
+    <p style="margin: 15px 5px 20px 5px">Are you sure you want to book this pubcrawl ? </p>
     <div class="button-container">
-      <%= link_to "Lets go !", event_path(@booking.event), class: 'button-pink-valid' %>
-      <%= link_to "Not yet !", pubcrawls_path, class: 'button-pink-invalid' %>
+      <%= link_to "Lets go !", event_path(@booking.event), class: 'button-pink-valid', style:"width: 75%; margin-bottom: 10px" %>
+      <%= link_to "Not yet !", pubcrawls_path, class: 'button-pink-invalid', style:"width: 75%" %>
       </div>
   </div>
