@@ -4,8 +4,10 @@ class PubcrawlsController < ApplicationController
   def index
     if params[:location].present?
       @pubcrawls = Pubcrawl.where(location: params[:location])
+      @title = "Discover the night in #{params[:location]}"
     else
       @pubcrawls = Pubcrawl.all
+      @title = "Discover all our pubcrawls"
     end
     @markers = @pubcrawls.map do |pubcrawl|
       {

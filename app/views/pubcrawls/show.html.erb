@@ -22,13 +22,15 @@
     </ul>
   </div>
   <hr style="color: white">
+  <div class="form-container">
+    <%= simple_form_for [@pubcrawl, @event] do |f| %>
+        <%= f.input :date,
+                    label: "Select date",
+                    as: :string,
+                    input_html: {data: { controller: "datepicker"} },
+                    label_html: { class: "white-label" } %>
+        <%= f.submit "Join Event", class: "button-pink-valid center-button" %>
+      <% end %>
+  </div>
 
-  <%= simple_form_for [@pubcrawl, @event] do |f| %>
-    <%= f.input :date,
-                label: "Select date",
-                as: :string,
-                input_html: {data: { controller: "datepicker"} },
-                label_html: { class: "white-label" } %>
-    <%= f.submit "Join Event", class: "button-pink-valid center-button" %>
-  <% end %>
 </div>

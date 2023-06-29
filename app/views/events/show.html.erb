@@ -1,15 +1,15 @@
 <div class="container">
   <h1><%= @event.pubcrawl.name%></h1>
-  <h4><%= @event.date%></h1>
+  <h4 style="color: white"><%= @event.date%></h1>
   <hr style="color: white">
-  <h2> LIVE EVENT</h2>
-  <h3> Notifications </h3>
+  <h2 style="color: white"> LIVE EVENT</h2>
+  <h3 style="color: white"> Notifications </h3>
   <%= link_to "Come back a 9 pm !", pubcrawls_path, class: 'button-pink-valid' %>
   <hr style="color: white">
   <p>Members</p>
   <ul>
     <% @event.users.each do |user| %>
-      <li><%= user.email %></li>
+      <li style="color: white"><%= user.email %></li>
     <%end%>
   </ul>
   <hr style="color: white">
