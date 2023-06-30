@@ -1,10 +1,11 @@
 <a href="<%= pubcrawl_path(pubcrawl) %>" class="deco-none">
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('<%= cl_image_path pubcrawl.photo.key, crop: :fill %>')">
       <div class="card-pubcrawl-infos">
-          <h4 class="card-name"><%= pubcrawl.name %></h4>
+          <h4 class="card-title-black"><%= pubcrawl.name %></h4>
           <hr class="soulign">
           <div class="card-loc"><i class="fa-solid fa-location-dot"></i>  <%= pubcrawl.location %></div>
           <div class="card-nbr"><i class="fa-solid fa-user-group"></i>  <%= pubcrawl.nb_max %></div>
       </div>
     </div>
 </a>
+
