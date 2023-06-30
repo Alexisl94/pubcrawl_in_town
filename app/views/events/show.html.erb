@@ -1,7 +1,7 @@
 
 <div class="container">
   <h1 style="font-weight: 600; text-align: center"><%= @event.pubcrawl.name%></h1>
-    <h4 style="font-weight: 400; color: white; text-align: center"><%= @event.date.try(:strftime, "%Y-%m-%d") %></h1>
+  <h4 style="font-weight: 400; color: white; text-align: center"><%= @event.date.try(:strftime, "%Y-%m-%d") %></h1>
 </div>
 <div class="live-event-banner">
   <div class="row">
@@ -11,28 +11,10 @@
   </div>
 </div>
 <div class="container">
-  <h4 style="color: white"><%= @event.date%></h4>
-  <div class="container">
-    <div class="d-flex justify-content-center">
-      <div class="notifications-container position-relative">
-        <h3 class="text-center mt-1" style="color: black; text-shadow: 1px 1px 2px white;">Notifications</h3>
-        <ul>
-          <li><%= link_to "Come back a 9 pm !", pubcrawls_path, class:"text-decoration-none text-dark" %></li>
-        </ul>
-        <button type="button" class="btn-chat btn position-absolute bottom-0 end-0">
-          <i class="fa-regular fa-comments fs-1"></i>
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-            99+
-            <span class="visually-hidden">unread messages</span>
-          </span>
-        </button>
-      </div>
-    </div>
-  <div class="container chatroom" data-controller="chatroom-subscription"
-  data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
+  <div class="container chatroom" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
     <div class="messages" data-chatroom-subscription-target="messages">
       <% @chatroom.messages.each do |message| %>
-        <%= render "messages/message", message: message %>
+      <%= render "messages/message", message: message %>
       <% end %>
     </div>
     <%= simple_form_for [@event, @chatroom, @message], html: {data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex"} do |f| %>
@@ -52,7 +34,7 @@
   <p>Members</p>
   <ul>
     <% @event.users.each do |user| %>
-      <li style="color: white"><%= user.nickname %></li>
+    <li style="color: white"><%= user.nickname %></li>
     <%end%>
   </ul>
   <hr style="color: white">
@@ -73,9 +55,9 @@
       <% end %>
     </div>
     <div class="all-buton">
-    <%= link_to "All pubcrawls", pubcrawls_path, class: 'button-pink-invalid' %>
-    <%= link_to "My bookings", bookings_path, class: 'button-pink-invalid' %>
-    <%= link_to "Give a review", new_event_review_path(@event), class:"button-pink-invalid" %>
+      <%= link_to "All pubcrawls", pubcrawls_path, class: 'button-pink-invalid' %>
+      <%= link_to "My bookings", bookings_path, class: 'button-pink-invalid' %>
+      <%= link_to "Give a review", new_event_review_path(@event), class:"button-pink-invalid" %>
     </div>
   </div>
 </div>
