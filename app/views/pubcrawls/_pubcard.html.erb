@@ -4,6 +4,17 @@
       <div class="wrapper">
         <div class="border-shadow-black">
             <div class="profile-top" style="background-image: url('<%= cl_image_path pubcrawl.photo.key, crop: :fill %>')">
+              <% if pubcrawl.reviews.any? %>
+                <div class="rating">
+                  <% average_rating = pubcrawl.reviews.average(:rating).to_i %>
+                  <% average_rating.times do %>
+                    <i class="fas fa-star" style="color: rgba(239, 11, 190, 0.85);"></i>
+                  <% end %>
+                  <% (5 - average_rating).times do %>
+                    <i class="far fa-star"></i>
+                  <% end %>
+                </div>
+              <% end %>
           </div>
 
           <div class="profile-bottom">

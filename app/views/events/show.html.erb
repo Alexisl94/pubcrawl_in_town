@@ -42,16 +42,16 @@
     <p>Last reviews :</p>
     <div>
       <% @event.reviews.each do |review| %>
-      <div>
-        <% review.rating.times do %>
-        <i class="fas fa-star" style="color: #fbff00;"></i>
-        <% end %>
-        <% (5 - review.rating).times do %>
-        <i class="far fa-star"></i>
-        <% end %>
-        <p style="font-size: 15px"><%= review.comment %></p>
-        <hr style="color: white">
-      </div>
+        <div>
+          <% review.rating.times do %>
+            <i class="fas fa-star" style="color: #fbff00;"></i>
+          <% end %>
+          <% (5 - review.rating).times do %>
+            <i class="far fa-star" style="color: white"></i>
+          <% end %>
+          <p style="font-size: 15px"><%= review.comment %></p>
+          <hr style="color: white">
+        </div>
       <% end %>
     </div>
     <div class="all-buton">
