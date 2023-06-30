@@ -21,6 +21,7 @@ class PubcrawlsController < ApplicationController
 
   def show
     @event = Event.new
+    @pubcrawl = Pubcrawl.find(params[:id])
   end
 
   private

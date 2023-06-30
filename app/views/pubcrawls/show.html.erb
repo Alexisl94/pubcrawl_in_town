@@ -12,14 +12,18 @@
   </div>
   <p class="text-center" style="color: #EDEDED; margin: 0 10px 0 10px"><%= @pubcrawl.description %></p>
   <div style="margin-top: 10px;">
-    <p class="text-center" style="color: white; text-decoration: underline; font-size: 20px">Last reviews :</p>
-    <ul>
-      <% @pubcrawl.reviews.each do |review|%>
-      <li class="list-review">
-        <p><strong> <%= review.rating %> / 10 - </strong><%= review.comment %></p>
-      </li>
+    <% if @pubcrawl.reviews.any? %>
+      <h2 style="color: white; text-decoration: underline; font-size: 20px">Average Rating:</h2>
+      <% average_rating = @pubcrawl.reviews.average(:rating).to_i %>
+      <% average_rating.times do %>
+        <i class="fas fa-star" style="color: #fbff00;"></i>
       <% end %>
-    </ul>
+      <% (5 - average_rating).times do %>
+        <i class="far fa-star" style="color: white"></i>
+      <% end %>
+    <% else %>
+      <p>No reviews yet.</p>
+    <% end %>
   </div>
   <hr style="color: white">
   <div class="form-container">

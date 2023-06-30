@@ -62,3 +62,14 @@
 .border-shadow-black {
   box-shadow: 4px 5px 4px -4px #000000;
 }
+
+.rating {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: white;
+}
+
+.rating i {
+  margin-right: 2px;
+}
