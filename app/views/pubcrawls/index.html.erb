@@ -32,7 +32,7 @@
     </div>
   </div>
   <div class="container">
-    <div id="map" data-controller="map" data-map-markers-value="<%= @markers.to_json %>" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" data-toggle-map-target="map" class="d-none"></div>
+    <div data-controller="map" data-map-markers-value="<%= @markers.to_json %>" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" data-toggle-map-target="map" class="d-none", style="height: 300px !important; width: 100%;margin-top: 15px;border: 0.5px solid white;border-radius: 15px;"></div>
   </div>
   <br>
   <br>
