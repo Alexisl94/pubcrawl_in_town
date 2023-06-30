@@ -31,7 +31,7 @@
         <%= f.input :date,
                     label: "Select date",
                     as: :string,
-                    input_html: {data: { controller: "datepicker"} },
+                    input_html: {data: { controller: "datepicker", value: @disbaled_dates}},
                     label_html: { class: "white-label" } %>
         <%= f.submit "Join Event", class: "button-pink-valid center-button" %>
       <% end %>

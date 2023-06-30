@@ -13,7 +13,7 @@
     </div>
   </div>
   <hr style="color: white">
-  <h2 style="margin-left: 15px; color: white; margin-bottom: 0px;">Best rated</h2>
+  <h3 style="margin-left: 15px; color: white; margin-bottom: 0px;">Best rated <i class="fa-solid fa-star fa-2xs" style="color: #ffffff;"></i></h3>
   <div data-toggle-map-target="list">
     <div id="carouselExampleAutoplaying" class="carousel slide content-container" data-bs-ride="carousel">
       <div class="carousel-inner">
@@ -24,7 +24,7 @@
         <% end %>
       </div>
     </div>
-    <h2 style="margin-left: 15px; color: white; margin-bottom: 0px;"><%= @title %></h2>
+    <h3 style="margin-left: 15px; color: white; margin-bottom: 0px;"><%= @title %> :</h3>
     <div class="cards-dis">
         <% @pubshuffle.each do |pubcrawl|  %>
           <%= render "pubcard", pubcrawl: pubcrawl %>
@@ -32,7 +32,7 @@
     </div>
   </div>
   <div class="container">
-    <div data-controller="map" data-map-markers-value="<%= @markers.to_json %>" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" data-toggle-map-target="map" class="d-none", style="height: 300px !important; width: 100%;margin-top: 15px;border: 0.5px solid white;border-radius: 15px;"></div>
+    <div id="map" data-controller="map" data-map-markers-value="<%= @markers.to_json %>" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" data-toggle-map-target="map" class="d-none" style="height:300px; width: 100%; border: 1px solid white; border-radius:15px"></div>
   </div>
   <br>
   <br>

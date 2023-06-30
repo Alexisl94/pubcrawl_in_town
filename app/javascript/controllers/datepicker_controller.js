@@ -2,6 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 import flatpickr from "flatpickr"; // You need to import this to use new flatpickr()
 
 export default class extends Controller {
+
   connect() {
       this.initFlatpickr();
       this.addEventListeners();
@@ -12,7 +13,11 @@ export default class extends Controller {
         this.fp.destroy();
       }
 
+      const inputElement = this.element;
+      const disabledDates = JSON.parse(inputElement.dataset.value)
+
       this.fp = flatpickr(this.element, {
+        disable: disabledDates,
         minDate: "today",
         dateFormat: "Y-m-d",
       });
