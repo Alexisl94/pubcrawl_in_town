@@ -17,6 +17,7 @@
 <div class="booking-margin-bot">
   <% @bookings.each do |booking| %>
     <div class="card mb-3" style="max-width: 540px; border-radius: 20px">
+      <%= link_to event_path(booking.event), style: "text-decoration: none;" do %>
       <div class="row g-0">
         <div class="col-5">
           <%# <img src="https://images.unsplash.com/photo-1575444758702-4a6b9222336e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cHVifGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="..." class="img-booking-index"> %>
@@ -24,13 +25,13 @@
         </div>
         <div class="col-7">
           <div class="card-body card-body-booking">
-            <h2 class="card-title fs-4"><%= booking.event.pubcrawl.name %></h2>
+            <h2 class="card-title fs-4 text-dark"><%= booking.event.pubcrawl.name %></h2>
             <p class="card-text text-dark mb-0"><%= booking.event.date.try(:strftime, "%Y-%m-%d") %></p>
             <p class="card-text text-dark"><%= booking.user.email %></p>
-            <%= link_to "More details", event_path(booking.event), class: 'button-pink-invalid' %>
           </div>
         </div>
       </div>
+      <% end %>
     </div>
   <% end %>
 </div>
