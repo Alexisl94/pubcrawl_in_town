@@ -2,30 +2,15 @@
 <div class="container">
   <h1><%= @event.pubcrawl.name%></h1>
 </div>
-  <div class="live-event-banner">
-    <div class="row">
-      <div class="col-2 d-flex justify-content-end mt-3"><div class="red-point"></div></div>
-      <div class="col-8 text-center mt-2"><h2 style="color: white; text-shadow: 1px 1px 2px grey;">LIVE EVENT</h2></div>
-      <div class="col-2"></div>
-    </div>
+<div class="live-event-banner">
+  <div class="row">
+    <div class="col-2 d-flex justify-content-end mt-3"><div class="red-point"></div></div>
+    <div class="col-8 text-center mt-2"><h2 style="color: white; text-shadow: 1px 1px 2px grey;">LIVE EVENT</h2></div>
+    <div class="col-2"></div>
   </div>
-  <div class="container">
-    <div class="d-flex justify-content-center">
-      <div class="notifications-container position-relative">
-        <h3 class="text-center mt-1" style="color: black; text-shadow: 1px 1px 2px white;">Notifications</h3>
-        <ul>
-          <li><%= link_to "Come back a 9 pm !", pubcrawls_path, class:"text-decoration-none text-dark" %></li>
-        </ul>
-        <button type="button" class="btn-chat btn position-absolute bottom-0 end-0">
-          <i class="fa-regular fa-comments fs-1"></i>
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-            99+
-            <span class="visually-hidden">unread messages</span>
-          </span>
-        </button>
-      </div>
-    </div>
-  <h4 style="color: white"><%= @event.date%></h1>
+</div>
+<div class="container">
+  <h4 style="color: white"><%= @event.date%></h4>
   <div class="container chatroom" data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
     <div class="messages" data-chatroom-subscription-target="messages">
@@ -76,6 +61,7 @@
     <%= link_to "Give a review", new_event_review_path(@event), class:"button-pink-invalid" %>
     </div>
   </div>
+</div>
 <br>
 <br>
 <br>
