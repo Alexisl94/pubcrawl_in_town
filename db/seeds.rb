@@ -14,6 +14,9 @@ Message.destroy_all
 Chatroom.destroy_all
 User.destroy_all
 
+user = User.create!(id: 1, email: "admin@wagon.fr", nickname: "MASTER", password: "aloalo")
+user.save
+
 user = User.create!(email: "alexis@wagon.fr", nickname: "alexis", password: "aloalo")
 user.save
 

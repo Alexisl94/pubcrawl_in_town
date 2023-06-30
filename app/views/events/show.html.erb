@@ -11,10 +11,14 @@
   </div>
 </div>
 <div class="container">
-  <div class="container chatroom" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
+  <div class="container chatroom" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>" data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
     <div class="messages" data-chatroom-subscription-target="messages">
       <% @chatroom.messages.each do |message| %>
-      <%= render "messages/message", message: message %>
+              <div class="message-row d-flex <%= if message.admin?(current_user) then 'justify-content-center' else message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' end %>">
+          <div class="<%= if message.admin?(current_user) then 'admin-style' else message.sender?(current_user) ? 'sender-style' : 'receiver-style' end %>">
+            <%= render "messages/message", message: message %>
+          </div>
+        </div>
       <% end %>
     </div>
     <%= simple_form_for [@event, @chatroom, @message], html: {data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex"} do |f| %>
