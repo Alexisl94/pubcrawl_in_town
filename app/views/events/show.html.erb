@@ -1,6 +1,7 @@
 
 <div class="container">
-  <h1><%= @event.pubcrawl.name%></h1>
+  <h1 style="font-weight: 600; text-align: center"><%= @event.pubcrawl.name%></h1>
+    <h4 style="font-weight: 400; color: white; text-align: center"><%= @event.date.try(:strftime, "%Y-%m-%d") %></h1>
 </div>
   <div class="live-event-banner">
     <div class="row">
@@ -25,7 +26,6 @@
         </button>
       </div>
     </div>
-  <h4 style="color: white"><%= @event.date%></h1>
   <div class="container chatroom" data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
     <div class="messages" data-chatroom-subscription-target="messages">
