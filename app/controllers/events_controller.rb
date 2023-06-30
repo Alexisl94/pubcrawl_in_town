@@ -25,10 +25,14 @@ class EventsController < ApplicationController
     @booking = Booking.new
     @booking.event = @event
     @booking.user = current_user
-    if @booking.save
-      redirect_to booking_path(@booking)
+    if event_params[:date] != ""
+      if @booking.save
+        redirect_to booking_path(@booking)
+      else
+        render "pubcrawls/show", status: :unprocessable_entity
+      end
     else
-      render "pubcrawls/show"
+      render "pubcrawls/show", status: :unprocessable_entity
     end
   end
 
