@@ -9,6 +9,9 @@ require "open-uri"
 
 Pubcrawl.destroy_all
 Bar.destroy_all
+Event.destroy_all
+Message.destroy_all
+Chatroom.destroy_all
 User.destroy_all
 
 user = User.create!(email: "alexis@wagon.fr", nickname: "alexis", password: "aloalo")
