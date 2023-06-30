@@ -5,7 +5,7 @@ class BookingsController < ApplicationController
   before_action :set_pubcrawl, only: [:new, :create]
 
   def index
-    @bookings = Booking.all
+    @bookings = current_user.bookings
   end
 
   def show
