@@ -4,4 +4,5 @@ class Event < ApplicationRecord
   has_many :users, through: :bookings
   has_many :reviews, dependent: :destroy
   belongs_to :chatroom, optional: true
+  validates_presence_of :date
 end
