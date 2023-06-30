@@ -22,6 +22,7 @@ class PubcrawlsController < ApplicationController
   def show
     @event = Event.new
     @pubcrawl = Pubcrawl.find(params[:id])
+    @disbaled_dates = current_user.events.map { |event| Date.parse(event.date.to_s)}
   end
 
   private

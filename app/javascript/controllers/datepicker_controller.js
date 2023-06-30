@@ -13,7 +13,11 @@ export default class extends Controller {
         this.fp.destroy();
       }
 
+      const inputElement = this.element;
+      const disabledDates = JSON.parse(inputElement.dataset.value)
+
       this.fp = flatpickr(this.element, {
+        disable: disabledDates,
         minDate: "today",
         dateFormat: "Y-m-d",
       });
