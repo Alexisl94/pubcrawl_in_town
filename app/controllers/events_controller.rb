@@ -5,6 +5,14 @@ class EventsController < ApplicationController
   def show
     @chatroom = @event.chatroom
     @message = Message.new
+    @markers = [@event.pubcrawl.first_bar, @event.pubcrawl.middle_bar, @event.pubcrawl.last_bar].map do |bar|
+      {
+        lat: bar.latitude,
+        lng: bar.longitude,
+        marker_html: render_to_string(partial: "marker", locals: {bar: bar}),
+        info_window_html: render_to_string(partial: "info_window", locals: {bar: bar})
+      }
+    end
   end
 
   def create
