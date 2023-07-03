@@ -37,6 +37,25 @@ class EventsController < ApplicationController
     end
   end
 
+  def check_notification_message
+    current_time = Time.current
+    messages = []
+
+    if current_time.hour == 15 && current_time.min >= 30
+      messages.push("<li class='notification'>The event is about to begin, go to the first bar!</li>")
+    end
+
+    if current_time.hour == 15 && current_time.min >= 31
+      messages.push("<li class='notification'>10pm, time to move to the second bar!</li>")
+    end
+
+    if current_time.hour == 15 && current_time.min >= 32
+      messages.push("<li class='notification'>It's now 11 p.m., so make your way to the third and final bar!</li>")
+    end
+
+    render plain: "<ul>#{messages.join}</ul>"
+  end
+
 
   # def timing(message)
   #   now = Time.now
