@@ -13,6 +13,7 @@ class EventsController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: {bar: bar})
       }
     end
+    # @time_message = timing(@message)
   end
 
   def create
@@ -35,6 +36,26 @@ class EventsController < ApplicationController
       render "pubcrawls/show", status: :unprocessable_entity
     end
   end
+
+
+  # def timing(message)
+  #   now = Time.now
+  #   date_message = Time.parse(message.created_at)
+  #   diff = now - date_message
+
+  #   if diff < 3600
+  #     minutes = (diff / 60).to_i
+  #     result = "#{minutes} minutes ago"
+  #   elsif diff < 86400
+  #     hours = (diff / 3600).to_i
+  #     result = "#{hours} hours ago"
+  #   else
+  #     result = date_message.strftime("%a %b %e at %l:%M")
+  #   end
+
+  #   @time_message = result
+  # end
+
 
   private
 
