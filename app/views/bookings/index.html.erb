@@ -16,7 +16,7 @@
 
 <div class="booking-margin-bot">
   <% @bookings.each do |booking| %>
-    <div class="card mb-3" style="max-width: 540px; border-radius: 20px">
+    <div class="card mb-3 card-size">
       <%= link_to event_path(booking.event), style: "text-decoration: none;" do %>
       <div class="row g-0">
         <div class="col-5">
@@ -27,7 +27,7 @@
           <div class="card-body card-body-booking">
             <h2 class="card-title fs-4 text-dark"><%= booking.event.pubcrawl.name %></h2>
             <p class="card-text text-dark mb-0"><%= booking.event.date.try(:strftime, "%Y-%m-%d") %></p>
-            <p class="card-text text-dark"><%= booking.user.email %></p>
+            <p class="card-text text-dark"><%= booking.user.nickname %></p>
           </div>
         </div>
       </div>

@@ -34,10 +34,8 @@
   </div>
   <hr style="color: white">
   <h4 style="color:white; text-align: center">Meeting point</h4>
-  <div class="container">
     <div data-controller="map" data-map-markers-value="<%= @markers.to_json %>" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" data-toggle-map-target="map", style="height: 300px !important; width: 100%;margin-top: 15px;border: 0.5px solid white;border-radius: 15px;"></div>
-  </div>
-  <hr style="color: white">
+  <br>
   <p>Members</p>
   <ul>
     <% @event.users.each do |user| %>
@@ -64,8 +62,6 @@
       <% end %>
     </div>
     <div class="all-buton">
-      <%= link_to "All pubcrawls", pubcrawls_path, class: 'button-pink-invalid' %>
-      <%= link_to "My bookings", bookings_path, class: 'button-pink-invalid' %>
       <%= link_to "Give a review", new_event_review_path(@event), class:"button-pink-invalid" %>
     </div>
   </div>
