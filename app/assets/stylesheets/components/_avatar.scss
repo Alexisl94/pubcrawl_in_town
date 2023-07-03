@@ -1,6 +1,12 @@
 .avatar {
   width: 40px;
+  height: 40px;
   border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  border: rgb(0, 0, 0) 1px solid;
+  object-fit: cover;
+  object-position: center,
 }
 .avatar-large {
   width: 56px;
@@ -17,4 +23,14 @@
   border-radius: 0px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
+}
+.avatar-profile {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  border: rgb(0, 0, 0) 1px solid;
+  object-fit: cover;
+  object-position: center,
 }

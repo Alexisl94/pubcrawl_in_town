@@ -1,6 +1,6 @@
 <div class="container text-center">
   <div class="container mt-3 p-2" style="border:1px solid white; border-radius:15px">
-    <%= cl_image_tag @user.avatar.key %>
+     <%= cl_image_tag @user.avatar.key, class:"avatar-profile"%>
     <p class="admin-style"><%= @user.nickname %></p>
     <p>-- <%= @user.email %> --</p>
     <hr>
