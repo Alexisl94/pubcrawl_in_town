@@ -11,11 +11,24 @@ export default class extends Controller {
       { received: data => this.#insertMessageAndScrollDown(data) }
     )
     console.log(`Subscribed to the chatroom with the id ${this.chatroomIdValue}.`)
+    // window.onload = () => {
+    //   const scrollPosition = sessionStorage.getItem("scrollPosition");
+    //   console.log(scrollPosition)
+    //   if (scrollPosition) {
+    //     this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight) = scrollPosition;
+    //     console.log(this.messagesTarget.scrollHeight)
+    //     console.log("hllo")
+    //   }
+    // };
   }
 
   resetForm(event) {
     console.log("hello")
     event.target.reset()
+    // this.saveScrollPosition()
+    // // window.location.reload();
+    // this.messagesTarget.scrollHeight = (sessionStorage.getItem("scrollPosition"))
+    // this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
   }
 
   disconnect() {
@@ -23,16 +36,23 @@ export default class extends Controller {
     this.channel.unsubscribe()
   }
 
+  // saveScrollPosition() {
+  //   sessionStorage.setItem("scrollPosition", this.messagesTarget.scrollHeight);
+  //   console.log(this.messagesTarget.scrollHeight)
+  // }
+  // refresh() {
+  //   window.location.reload()
+  // }
+
   #insertMessageAndScrollDown(data) {
     // Logic to know if the sender is the current_user
     const currentUserIsSender = this.currentUserIdValue === data.sender_id
     const currentUserIsMaster =  data.sender_id === 1
-    console.log( currentUserIsMaster)
     // Creating the whole message from the `data.message` String
     const messageElement = this.#buildMessageElement(currentUserIsSender, currentUserIsMaster, data.message)
-
     // Inserting the `message` in the DOM
     this.messagesTarget.insertAdjacentHTML("beforeend", messageElement)
+    // this.messagesTarget.last
     this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
   }
 
