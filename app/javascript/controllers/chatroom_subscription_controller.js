@@ -25,6 +25,7 @@ export default class extends Controller {
   resetForm(event) {
     console.log("hello")
     event.target.reset()
+    this.update()
     // this.saveScrollPosition()
     // // window.location.reload();
     // this.messagesTarget.scrollHeight = (sessionStorage.getItem("scrollPosition"))

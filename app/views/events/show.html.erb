@@ -46,7 +46,7 @@
       <%= f.submit "Send", class: 'button-pink-valid' %>
     <% end %>
   </div>
-  <hr style="color: white">z
+  <br>
   <h4 style="color:white; text-align: center">Meeting point</h4>
     <div data-controller="map" data-map-status-value= "<%=@event.status%>" data-action="click=>map#update" data-map-markers-value="<%= @markers.to_json %>" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" data-toggle-map-target="map", style="height: 300px !important; width: 100%;margin-top: 15px;border: 0.5px solid white;border-radius: 15px;"></div>
   <br>
@@ -54,7 +54,7 @@
   <ul>
     <% @event.users.each do |user| %>
       <% if user.nickname != "MASTER" %>
-        <li style="color: white"><%= user.nickname %></li>
+        <li style="list-style: none; color:white"> <%= cl_image_tag user.avatar.key, class:"avatar" %> <%= user.nickname %></li>
         <%end%>
     <%end%>
   </ul>
@@ -75,7 +75,7 @@
         </div>
       <% end %>
     </div>
-    <div class="all-buton">
+    <div class="all-buton" style="justify-content: center">
       <%= link_to "Give a review", new_event_review_path(@event), class:"button-pink-invalid" %>
     </div>
   </div>
