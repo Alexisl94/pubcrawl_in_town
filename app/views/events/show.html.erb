@@ -13,14 +13,14 @@
 <div class="container">
   <br>
   <h4 style="color:white; text-align: center">Notifications</h4>
-  <div class="container-notif card-category" data-controller="notification" data-notification-target="containerNotif">
+  <div class="container-notif card-notif" data-controller="notification" data-notification-target="containerNotif">
     <ul data-target="container-notif.list">
       <% current_time = Time.current %>
-      <% if current_time.hour == 10 && current_time.min == 36 %>
+      <% if current_time.hour == 13 && current_time.min == 31 %>
         <li class="notification">Notification pour 21h</li>
-      <% elsif current_time.hour == 10 && current_time.min == 37 %>
+      <% elsif current_time.hour == 13 && current_time.min == 32 %>
         <li class="notification">Notification pour 22h</li>
-      <% elsif current_time.hour == 10 && current_time.min == 38 %>
+      <% elsif current_time.hour == 13 && current_time.min == 33 %>
         <li class="notification">Notification pour 23h30</li>
       <% end %>
     </ul>

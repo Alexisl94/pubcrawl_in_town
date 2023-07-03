@@ -12,5 +12,5 @@ Rails.application.routes.draw do
       resources :messages, only: :create
     end
   end
-  get '/notifications/check_message', to: 'pages#check_notification_message'
+  get '/notifications/check_message', to: 'events#check_notification_message'
 end

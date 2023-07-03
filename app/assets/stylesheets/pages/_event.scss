@@ -33,6 +33,20 @@
 
 .notification {
   color: white;
+  font-size: 16px;
+}
+
+.notification.hidden {
+  display: none;
+}
+
+.card-notif {
+  display: flex;
+  height: 150px;
+  font-size: 20px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 10px 1px #FFFFFF;
+  margin: 20px;
 }
 
 .chat-input {
