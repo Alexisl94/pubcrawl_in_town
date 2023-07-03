@@ -12,6 +12,11 @@
 </div>
 <div class="container">
   <br>
+  <h4 style="color:white; text-align: center">Notifications</h4>
+  <div class="container card-category">
+
+  </div>
+  <br>
   <h4 style="color:white; text-align: center">Let's chat with your buddies !</h4>
   <div class="container chatroom" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>" data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
     <div class="messages" data-chatroom-subscription-target="messages">
@@ -64,8 +69,6 @@
       <% end %>
     </div>
     <div class="all-buton">
-      <%= link_to "All pubcrawls", pubcrawls_path, class: 'button-pink-invalid' %>
-      <%= link_to "My bookings", bookings_path, class: 'button-pink-invalid' %>
       <%= link_to "Give a review", new_event_review_path(@event), class:"button-pink-invalid" %>
     </div>
   </div>
