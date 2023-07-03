@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :bookings
   has_many :events, through: :bookings
+  has_one_attached :avatar
  
   def admin
     nickname == "MASTER"

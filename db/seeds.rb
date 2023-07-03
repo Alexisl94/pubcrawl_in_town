@@ -14,19 +14,29 @@ Message.destroy_all
 Chatroom.destroy_all
 User.destroy_all
 
+file = File.open("app/assets/images/avatar1.png")
 user = User.create!(id: 1, email: "admin@wagon.fr", nickname: "MASTER", password: "aloalo")
+user.avatar.attach(io: file, filename: "avatar1.png", content_type: "image/jpg")
 user.save
 
+file = File.open("app/assets/images/avatar2.png")
 user = User.create!(email: "alexis@wagon.fr", nickname: "alexis", password: "aloalo")
+user.avatar.attach(io: file, filename: "avatar2.png", content_type: "image/jpg")
 user.save
 
+file = File.open("app/assets/images/avatar1.png")
 user = User.create!(email: "romain@wagon.fr", nickname: "romain", password: "aloalo")
+user.avatar.attach(io: file, filename: "avatar3.png", content_type: "image/jpg")
 user.save
 
+file = File.open("app/assets/images/avatar2.png")
 user = User.create!(email: "quentin@wagon.fr", nickname: "quentin", password: "aloalo")
+user.avatar.attach(io: file, filename: "avatar4.png", content_type: "image/jpg")
 user.save
 
+file = File.open("app/assets/images/avatar1.png")
 user = User.create!(email: "arthur@wagon.fr", nickname: "arthur", password: "aloalo")
+user.avatar.attach(io: file, filename: "avatar5.png", content_type: "image/jpg")
 user.save
 
 # Paris
