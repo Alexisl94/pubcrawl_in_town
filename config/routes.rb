@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
+  get '/profile', to: 'users#profile'
   resources :pubcrawls do
     resources :events, only: [:create]
   end
