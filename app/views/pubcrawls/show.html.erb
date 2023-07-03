@@ -1,40 +1,47 @@
-<div class="container">
-<br>
-<%= link_to "Back to #{@pubcrawl.location} pubcrawls", pubcrawls_path(location: @pubcrawl.location), class:"go-back-button", style:"margin: 10px 0 0 10px;" %>
-  <div style="display: flex; justify-content: center;">
-    <%= cl_image_tag @pubcrawl.photo.key, class:"img-show" %>
-  </div>
-  <div style="display: flex; justify-content: center;">
-    <div class="border"></div>
-  </div>
-  <div style="display: flex; justify-content: center;">
-    <h1 class="title-pubcrawl-show"><%= @pubcrawl.name %></h1>
-  </div>
-  <p class="text-center" style="color: #EDEDED; margin: 0 10px 0 10px"><%= @pubcrawl.description %></p>
-  <div style="margin-top: 10px;">
-    <% if @pubcrawl.reviews.any? %>
-      <h2 style="color: white; text-decoration: underline; font-size: 20px">Average Rating:</h2>
-      <% average_rating = @pubcrawl.reviews.average(:rating).to_i %>
-      <% average_rating.times do %>
-        <i class="fas fa-star" style="color: #fbff00;"></i>
+<head>
+  <% content_for :meta_title, "#{@pubcrawl.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+  <% content_for :meta_description, @pubcrawl.description %>
+  <% content_for :meta_image, cl_image_path(@pubcrawl.photo.key) %>
+</head>
+<body>
+  <div class="container">
+  <br>
+  <%= link_to "Back to #{@pubcrawl.location} pubcrawls", pubcrawls_path(location: @pubcrawl.location), class:"go-back-button", style:"margin: 10px 0 0 10px;" %>
+    <div style="display: flex; justify-content: center;">
+      <%= cl_image_tag @pubcrawl.photo.key, class:"img-show" %>
+    </div>
+    <div style="display: flex; justify-content: center;">
+      <div class="border"></div>
+    </div>
+    <div style="display: flex; justify-content: center;">
+      <h1 class="title-pubcrawl-show"><%= @pubcrawl.name %></h1>
+    </div>
+    <p class="text-center" style="color: #EDEDED; margin: 0 10px 0 10px"><%= @pubcrawl.description %></p>
+    <div style="margin-top: 10px;">
+      <% if @pubcrawl.reviews.any? %>
+        <h2 style="color: white; text-decoration: underline; font-size: 20px">Average Rating:</h2>
+        <% average_rating = @pubcrawl.reviews.average(:rating).to_i %>
+        <% average_rating.times do %>
+          <i class="fas fa-star" style="color: #fbff00;"></i>
+        <% end %>
+        <% (5 - average_rating).times do %>
+          <i class="far fa-star" style="color: white"></i>
+        <% end %>
+      <% else %>
+        <p>No reviews yet.</p>
       <% end %>
-      <% (5 - average_rating).times do %>
-        <i class="far fa-star" style="color: white"></i>
-      <% end %>
-    <% else %>
-      <p>No reviews yet.</p>
-    <% end %>
-  </div>
-  <hr style="color: white">
-  <div class="form-container">
-    <%= simple_form_for [@pubcrawl, @event] do |f| %>
-        <%= f.input :date,
-                    label: "Select date",
-                    as: :string,
-                    input_html: {data: { controller: "datepicker", value: @disbaled_dates}},
-                    label_html: { class: "white-label" } %>
-        <%= f.submit "Join Event", class: "button-pink-valid center-button" %>
-      <% end %>
-  </div>
+    </div>
+    <hr style="color: white">
+    <div class="form-container">
+      <%= simple_form_for [@pubcrawl, @event] do |f| %>
+          <%= f.input :date,
+                      label: "Select date",
+                      as: :string,
+                      input_html: {data: { controller: "datepicker", value: @disbaled_dates}},
+                      label_html: { class: "white-label" } %>
+          <%= f.submit "Join Event", class: "button-pink-valid center-button" %>
+        <% end %>
+    </div>
 
-</div>
+  </div>
+</body>
