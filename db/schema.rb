@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_29_112443) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_03_100241) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -73,6 +73,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_29_112443) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "chatroom_id"
+    t.integer "status", default: 1
     t.index ["chatroom_id"], name: "index_events_on_chatroom_id"
     t.index ["pubcrawl_id"], name: "index_events_on_pubcrawl_id"
   end
