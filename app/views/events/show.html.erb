@@ -39,10 +39,8 @@
   </div>
   <hr style="color: white">
   <h4 style="color:white; text-align: center">Meeting point</h4>
-  <div class="container">
     <div data-controller="map" data-map-markers-value="<%= @markers.to_json %>" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" data-toggle-map-target="map", style="height: 300px !important; width: 100%;margin-top: 15px;border: 0.5px solid white;border-radius: 15px;"></div>
-  </div>
-  <hr style="color: white">
+  <br>
   <p>Members</p>
   <ul>
     <% @event.users.each do |user| %>
