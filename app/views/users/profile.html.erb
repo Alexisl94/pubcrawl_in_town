@@ -4,10 +4,10 @@
     <p class="admin-style"><%= @user.nickname %></p>
     <p>-- <%= @user.email %> --</p>
     <hr>
-    <%= link_to "Update profile", edit_user_registration_path, class: "btn btn-outline-light", style:"width:100%;" %>
   </div>
 </div>
 <hr style="color:white">
-<div class="container">
-  <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-outline-light", style:"width:100%;" %>
+<div class="item-bot fixed-bottom">
+  <%= link_to "Update profile", edit_user_registration_path, class: "btn btn-outline-light margleft", style:"width:60%;" %>
+  <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-outline-light margleft margright", style:"width:25%;" %>
 </div>
