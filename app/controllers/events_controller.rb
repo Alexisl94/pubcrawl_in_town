@@ -49,7 +49,9 @@ class EventsController < ApplicationController
     end
     @booking = Booking.new
     @booking.event = @event
+    @booking.people = params[:people]
     @booking.user = current_user
+
     if event_params[:date] != ""
       if @booking.save
         redirect_to booking_path(@booking)
@@ -103,7 +105,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:date)
+    params.require(:event).permit(:date, :people)
   end
 
   def set_pubcrawl

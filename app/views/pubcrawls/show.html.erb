@@ -34,6 +34,7 @@
     <hr style="color: white">
     <div class="form-container">
       <%= simple_form_for [@pubcrawl, @event] do |f| %>
+          <%= number_field_tag :people %>
           <%= f.input :date,
                       label: "Select date",
                       as: :string,

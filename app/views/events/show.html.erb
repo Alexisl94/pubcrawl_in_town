@@ -52,9 +52,9 @@
   <br>
   <p>Pubcrawlers</p>
   <ul>
-    <% @event.users.each do |user| %>
-      <% if user.nickname != "MASTER" %>
-        <li style="list-style: none; color:white"> <%= cl_image_tag user.avatar.key, class:"avatar" %> <%= user.nickname %></li>
+    <% @event.bookings.each do |booking| %>
+      <% if booking.user.nickname != "MASTER" %>
+        <li style="list-style: none; color:white"> <%= cl_image_tag booking.user.avatar.key, class:"avatar" %> <%= booking.user.nickname %> + <%= booking.people %></li>
         <%end%>
     <%end%>
   </ul>
