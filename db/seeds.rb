@@ -13,6 +13,7 @@ Event.destroy_all
 Message.destroy_all
 Chatroom.destroy_all
 User.destroy_all
+Game.destroy_all
 
 file = File.open("app/assets/images/avatar1.png")
 user = User.create!(id: 1, email: "admin@wagon.fr", nickname: "MASTER", password: "aloalo")
@@ -260,6 +261,7 @@ file = URI.open("https://img.icons8.com/?size=512&id=9480&format=png")
 game_18 = Game.create(title: "Story Time", rules: 'One person starts a story with a sentence. Then, each player adds one sentence to continue the story. The story goes around the circle, and if someone forgets or messes up the story, they take a drink.')
 game_18.photo.attach(io: file, filename: "game18.png", content_type: "image/jpg")
 game_18.save
+
 
 file = URI.open("https://img.icons8.com/?size=512&id=58097&format=png")
 game_19 = Game.create(title: "Dance-Off", rules: 'Challenge another participant to a dance-off. Take turns showcasing your best dance moves, and the rest of the group determines the winner. The loser drinks, and a new challenger can step forward')

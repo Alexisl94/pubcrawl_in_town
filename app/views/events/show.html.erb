@@ -15,9 +15,9 @@
   <h4 style="color:white; text-align: center">Notifications</h4>
   <div class="container-notif card-notif d-flex flex-column" data-controller="notification" data-notification-target="containerNotif">
     <ul class="flex-grow-1">
-      <li class='notification d-none' data-notification-target="message1">The event is about to begin, go to the first bar!</li>
-      <li class='notification d-none' data-notification-target="message2">10pm, time to move to the second bar!</li>
-      <li class='notification d-none' data-notification-target="message3">It's now 11 p.m., so make your way to the third and final bar!</li>
+      <li class='notification d-none' data-notification-target="message1"><strong>09:00 PM</strong>- Meeting point, go to <%= @event.pubcrawl.first_bar.name %></li>
+      <li class='notification d-none' data-notification-target="message2"><strong>10.30 PM</strong> - Time to move to <%=  @event.pubcrawl.middle_bar.name %></li>
+      <li class='notification d-none' data-notification-target="message3"><strong>11:30 PM</strong> - Let's make our way to <%=  @event.pubcrawl.last_bar.name %></li>
     </ul>
     <div class="mt-auto">
       <div class="row w-100">
@@ -27,6 +27,7 @@
       </div>
     </div>
   </div>
+    <br>
   <div style="text-align: center" data-bs-toggle="modal" data-bs-target="#exampleModal">
   <i class="fa-solid fa-dice fa-2xl" style="color: #ffffff"></i>
   </div>
