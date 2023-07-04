@@ -5,15 +5,39 @@ class EventsController < ApplicationController
   def show
     @chatroom = @event.chatroom
     @message = Message.new
-    @markers = [@event.pubcrawl.first_bar, @event.pubcrawl.middle_bar, @event.pubcrawl.last_bar].each_with_index.map do |bar, index|
+    # @time_message = timing(@message)
+    respond_to do |format|
+      format.html
+      format.json # Follows the classic Rails flow and look for a create.json view
+    end
+  end
+
+
+  def get_markers
+    @event = Event.find(params[:event_id])
+    case @event.status
+    when 1
+      @markers = [@event.pubcrawl.first_bar]
+    when 2
+      @markers = [@event.pubcrawl.first_bar, @event.pubcrawl.middle_bar]
+    when 3
+      @markers = [@event.pubcrawl.first_bar, @event.pubcrawl.middle_bar, @event.pubcrawl.last_bar]
+    end
+
+    @markers = @markers.each_with_index.map do |bar, index|
       {
         lat: bar.latitude,
         lng: bar.longitude,
+        status: @event.status,
         marker_html: render_to_string(partial: "marker", locals: {bar: bar, num: index+1}),
         info_window_html: render_to_string(partial: "info_window", locals: {bar: bar, num: index+1})
       }
     end
-    # @time_message = timing(@message)
+    # respond_to do |format|
+    #   format.html { redirect_to event_path(@event) }
+    #   format.json { render partial "events/get_markers"}
+    # end
+    render json: @markers
   end
 
   def create

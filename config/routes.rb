@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :chatrooms, only: :show do
       resources :messages, only: :create
     end
+    get "/get_markers", to: "events#get_markers"
   end
   get '/notifications/check_message', to: 'pages#check_notification_message'
 end
