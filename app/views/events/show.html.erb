@@ -13,17 +13,19 @@
 <div class="container">
   <br>
   <h4 style="color:white; text-align: center">Notifications</h4>
-  <div class="container-notif card-notif" data-controller="notification" data-notification-target="containerNotif">
-    <ul data-target="container-notif.list">
-      <% current_time = Time.current %>
-      <% if current_time.hour == 13 && current_time.min == 31 %>
-        <li class="notification">Notification pour 21h</li>
-      <% elsif current_time.hour == 13 && current_time.min == 32 %>
-        <li class="notification">Notification pour 22h</li>
-      <% elsif current_time.hour == 13 && current_time.min == 33 %>
-        <li class="notification">Notification pour 23h30</li>
-      <% end %>
+  <div class="container-notif card-notif d-flex flex-column" data-controller="notification" data-notification-target="containerNotif">
+    <ul class="flex-grow-1">
+      <li class='notification d-none' data-notification-target="message1">The event is about to begin, go to the first bar!</li>
+      <li class='notification d-none' data-notification-target="message2">10pm, time to move to the second bar!</li>
+      <li class='notification d-none' data-notification-target="message3">It's now 11 p.m., so make your way to the third and final bar!</li>
     </ul>
+    <div class="mt-auto">
+      <div class="row w-100">
+        <div class="col-4"><button class="button-invisible" data-action="click->notification#addMessage1"></button></div>
+        <div class="col-4"><button class="button-invisible" data-action="click->notification#addMessage2"></button></div>
+        <div class="col-4"><button class="button-invisible" data-action="click->notification#addMessage3"></button></div>
+      </div>
+    </div>
   </div>
   <br>
   <h4 style="color:white; text-align: center">Let's chat with your buddies !</h4>
