@@ -6,7 +6,8 @@ export default class extends Controller {
   static values = {
     apiKey: String,
     markers: Array,
-    status: Number
+    status: Number,
+    url: String
   }
 
   connect() {
@@ -16,24 +17,36 @@ export default class extends Controller {
       style: 'mapbox://styles/mapbox/dark-v11',
       zoom: 1
     })
-    this.#addMarkersToMap()
-    this.#focusMapOnMarker()
+    this.fetchMarkers()
+    // this.#addMarkersToMap()
+    // this.#focusMapOnMarker()
   }
 
-  addNextMarkerToMap() {
-    const marker = this.markersValue[this.statusValue-1]
-    const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
-    const customMarker = document.createElement("div")
-    customMarker.innerHTML = marker.marker_html
-    new mapboxgl.Marker(customMarker)
-      .setLngLat([ marker.lng, marker.lat ])
-      .setPopup(popup)
-      .addTo(this.map)
-    this.#focusMapOnMarker()
+  fetchMarkers() {
+    fetch(this.urlValue)
+      .then(response => response.json())
+      .then((data) => {
+        this.#addMarkersToMap(data)
+        this.#focusMapOnMarker(data)
+      })
+      .catch((error) => console.log(error))
   }
 
-  #addMarkersToMap() {
-    this.markersValue.slice(0, this.statusValue).forEach((marker) => {
+  refreshMap() {
+    this.#removeMarkersFromMap()
+    this.fetchMarkers()
+  }
+
+
+  #removeMarkersFromMap() {
+    const mapMarkers = this.element.querySelectorAll('.mapboxgl-marker');
+    mapMarkers.forEach(marker => {
+      marker.remove();
+    });
+  }
+
+  #addMarkersToMap(data) {
+    data.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
       const customMarker = document.createElement("div")
       customMarker.innerHTML = marker.marker_html
@@ -44,9 +57,8 @@ export default class extends Controller {
     })
   }
 
-
-  #focusMapOnMarker() {
-    const marker = this.markersValue[this.statusValue-1];
+  #focusMapOnMarker(data) {
+    const marker = data[data.length - 1];
     this.map.flyTo({
       center: [marker.lng, marker.lat],
       zoom: 15,
