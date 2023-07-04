@@ -1,22 +1,15 @@
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <% game = Game.all.sample %>
-        <% array = [
-  '<i class="fa-solid fa-hippo fa-sm" style="color: #C147E9;"></i>',
-  '<i class="fa-solid fa-otter fa-sm" style="color: #C147E9;"></i>',
-  '<i class="fa-solid fa-frog fa-sm" style="color: #C147E9;"></i>',
-  '<i class="fa-solid fa-locust fa-sm" style="color: #C147E9;"></i>',
-  '<i class="fa-solid fa-dragon fa-sm" style="color: #C147E9;"></i>',
-  '<i class="fa-solid fa-kiwi-bird fa-sm" style="color: #C147E9;"></i>'
-      ] %>
-        <h1 class="modal-title fs-5" style="color: black !important" id="exampleModalLabel"><%= array.sample.html_safe %> <%= game.title %></h1>
+        <div style="justify-content: center"><%= cl_image_tag game.photo.key, class:"avatar-games" %></div>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <h2 class="modal-title fs-5" style="color: black !important" id="exampleModalLabel"><%= game.rules %></h2>
+        <h1 class="title-game" id="exampleModalLabel">"<%= game.title %>"</h1>
+        <h2 class="rules-games" id="exampleModalLabel"><%= game.rules %></h2>
       </div>
     </div>
   </div>
