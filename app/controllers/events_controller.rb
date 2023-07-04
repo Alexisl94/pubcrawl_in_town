@@ -1,15 +1,13 @@
 class EventsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:get_markers]
   before_action :set_event, only: %i[show]
   before_action :set_pubcrawl, only: [:create]
+  before_action :cors_set_access_control_headers, only: [:get_markers]
 
   def show
     @chatroom = @event.chatroom
     @message = Message.new
     # @time_message = timing(@message)
-    respond_to do |format|
-      format.html
-      format.json # Follows the classic Rails flow and look for a create.json view
-    end
   end
 
 
@@ -33,10 +31,6 @@ class EventsController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: {bar: bar, num: index+1})
       }
     end
-    # respond_to do |format|
-    #   format.html { redirect_to event_path(@event) }
-    #   format.json { render partial "events/get_markers"}
-    # end
     render json: @markers
   end
 
@@ -83,6 +77,14 @@ class EventsController < ApplicationController
 
 
   private
+
+  def cors_set_access_control_headers
+      headers['Access-Control-Allow-Origin'] = '*'
+      headers['Access-Control-Allow-Methods'] = 'GET'
+      headers['Access-Control-Request-Method'] = '*'
+      headers["Access-Control-Allow-Credentials"] = false
+      headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+  end
 
   def event_params
     params.require(:event).permit(:date, :people)
