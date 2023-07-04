@@ -1,0 +1,16 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <% game = Game.all.sample %>
+        <div style="justify-content: center"><%= cl_image_tag game.photo.key, class:"avatar-games" %></div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h1 class="title-game" id="exampleModalLabel">"<%= game.title %>"</h1>
+        <h2 class="rules-games" id="exampleModalLabel"><%= game.rules %></h2>
+      </div>
+    </div>
+  </div>
+</div>

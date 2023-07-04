@@ -17,13 +17,13 @@ export default class extends Controller {
       style: 'mapbox://styles/mapbox/dark-v11',
       zoom: 1
     })
-    this.fetchMarkers()
-    // this.#addMarkersToMap()
-    // this.#focusMapOnMarker()
+    this.fetchWithToken(this.urlValue, {})
   }
 
-  fetchMarkers() {
-    fetch(this.urlValue)
+  fetchWithToken(url, options) {
+    options.credentials = "same-origin";
+
+    return fetch(url, options)
       .then(response => response.json())
       .then((data) => {
         this.#addMarkersToMap(data)
@@ -34,7 +34,7 @@ export default class extends Controller {
 
   refreshMap() {
     this.#removeMarkersFromMap()
-    this.fetchMarkers()
+    this.fetchWithToken(this.urlValue, {})
   }
 
 

@@ -34,3 +34,16 @@
   object-fit: cover;
   object-position: center,
 }
+
+.avatar-games {
+  width: 80px;
+  height: 80px;
+  border-radius: 25%;
+  background-size: cover;
+  background-position: center;
+  border: rgb(0, 0, 0) 1px solid;
+  box-shadow: 0 1px 2px rgba(247, 0, 255, 0.432);
+  object-fit: cover;
+  object-position: center;
+  margin-left: 130px;
+}

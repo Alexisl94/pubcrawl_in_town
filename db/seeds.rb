@@ -13,6 +13,7 @@ Event.destroy_all
 Message.destroy_all
 Chatroom.destroy_all
 User.destroy_all
+Game.destroy_all
 
 file = File.open("app/assets/images/avatar1.png")
 user = User.create!(email: "admin@wagon.fr", nickname: "MASTER", password: "aloalo")
@@ -171,132 +172,133 @@ pubcrawl = Pubcrawl.create(name: "Barcelona El Born", description: "Immerse your
 pubcrawl.photo.attach(io: file, filename: "pubc8.png", content_type: "image/jpg")
 pubcrawl.save
 
-file = URI.open("https://icons8.com/icon/lte1KdZ4lP2I/liar-male")
+file = URI.open("https://img.icons8.com/?size=512&id=lte1KdZ4lP2I&format=png")
 game_1 = Game.create(title: "Two Truths and a Lie", rules: "Each person takes turns stating two true statements and one false statement about themselves. The group must guess which statement is the lie. The person who guesses correctly gets to choose who takes a drink.")
 game_1.photo.attach(io: file, filename: "game1.png", content_type: "image/jpg")
 game_1.save
 
-file = URI.open("https://icons8.com/icon/25109/diversity")
+file = URI.open("https://img.icons8.com/?size=512&id=25109&format=png")
 game_2 = Game.create(title: "Categories", rules: 'Choose a category, such as "movies" or "sports teams" Starting with a player, each person must name something from that category within a few seconds. If someone fails to answer or repeats something already said, they take a drink.')
 game_2.photo.attach(io: file, filename: "game2.png", content_type: "image/jpg")
 game_2.save
 
-file = URI.open("https://icons8.com/icon/10271/thumbs-up")
+file = URI.open("https://img.icons8.com/?size=512&id=10271&format=png")
 game_3 = Game.create(title: "Thumb Master", rules: 'One person is designated as the "Thumb Master." Throughout the evening, the Thumb Master discreetly puts their thumb on the edge of the table. As others notice and place their thumb on the table, the last person to do so drinks.')
 game_3.photo.attach(io: file, filename: "game3.png", content_type: "image/jpg")
 game_3.save
 
-file = URI.open("https://icons8.com/icon/emHGHqyBaA5d/princess")
+file = URI.open("https://img.icons8.com/?size=512&id=emHGHqyBaA5d&format=png")
 game_4 = Game.create(title: "Most Likely To...", rules: 'One person starts a sentence with "Most likely to..." and completes it with a scenario, such as "get arrested." On the count of three, everyone points to the person they think is most likely to fit the scenario. The person with the most votes takes a drink.')
 game_4.photo.attach(io: file, filename: "game4.png", content_type: "image/jpg")
 game_4.save
 
-file = URI.open("https://icons8.com/icon/xrrbUt9GRgKr/o-key")
+file = URI.open("https://img.icons8.com/?size=512&id=xrrbUt9GRgKr&format=png")
 game_5 = Game.create(title: "Rhyme Time", rules: 'One person starts with a word, and the next person must quickly say a word that rhymes with it. This continues in a circle, and anyone who fails to come up with a rhyme within a few seconds takes a drink.')
 game_5.photo.attach(io: file, filename: "game5.png", content_type: "image/jpg")
 game_5.save
 
-file = URI.open("https://icons8.com/icon/TW9bZua1rBzW/bad-bunny")
+file = URI.open("https://img.icons8.com/?size=512&id=TW9bZua1rBzW&format=png")
 game_6 = Game.create(title: "Celebrity Name Game", rules: "Players take turns naming a celebrity. The next player must then name another celebrity whose first name starts with the first letter of the previous celebrity's last name. The game continues rapidly, and anyone who can't think of a name or repeats one takes a drink.")
 game_6.photo.attach(io: file, filename: "game6.png", content_type: "image/jpg")
 game_6.save
 
-file = URI.open("https://icons8.com/icon/10164/christmas-penguin")
+file = URI.open("https://img.icons8.com/?size=512&id=10164&format=png")
 game_7 = Game.create(title: "I Have Never", rules: 'Players take turns saying "I have never..." followed by something they have never done. Anyone who has done the mentioned action must drink. The game continues with each player sharing something they have never done.')
 game_7.photo.attach(io: file, filename: "game7.png", content_type: "image/jpg")
 game_7.save
 
-file = URI.open("https://icons8.com/icon/9210/snail")
+file = URI.open("https://img.icons8.com/?size=512&id=9210&format=png")
 game_8 = Game.create(title: "Rock, Paper, Scissors Tournament", rules: 'Organize a Rock, Paper, Scissors tournament among the participants. Players pair up and play a round of Rock, Paper, Scissors. The loser of each round takes a drink, and the tournament continues until a winner is determined.')
 game_8.photo.attach(io: file, filename: "game8.png", content_type: "image/jpg")
 game_8.save
 
-file = URI.open("https://icons8.com/icon/41328/abacus")
+file = URI.open("https://img.icons8.com/?size=512&id=41328&format=png")
 game_9 = Game.create(title: "Counting Game", rules: 'Starting with a random number, players count in a circle, with each person saying the next number in sequence. However, there are two exceptions: any number containing a 7 or a multiple of 7 must be replaced with the word "buzz." Anyone who makes a mistake takes a drink.')
 game_9.photo.attach(io: file, filename: "game9.png", content_type: "image/jpg")
 game_9.save
 
-file = URI.open("https://icons8.com/icon/21448/coins")
+file = URI.open("https://img.icons8.com/?size=512&id=21448&format=png")
 game_10 = Game.create(title: "Coin Toss", rules: 'Players take turns flipping a coin. They call "heads" or "tails" before flipping. If they guess correctly, they choose someone else to take a drink. If they guess wrong, they drink.')
 game_10.photo.attach(io: file, filename: "game10.png", content_type: "image/jpg")
 game_10.save
 
-file = URI.open("https://icons8.com/icon/DgDkLzPxR-a4/frog-face")
+file = URI.open("https://img.icons8.com/?size=512&id=DgDkLzPxR-a4&format=png")
 game_11 = Game.create(title: "Name That Tune", rules: 'One person hums or sings a few bars of a popular song, and the others have to guess the song title and artist. The person who guesses correctly gets to choose who drinks.')
 game_11.photo.attach(io: file, filename: "game11.png", content_type: "image/jpg")
 game_11.save
 
-file = URI.open("https://icons8.com/icon/30220/roulette")
+file = URI.open("https://img.icons8.com/?size=512&id=30220&format=png")
 game_12 = Game.create(title: "Shot Roulette", rules: 'Each player takes turns spinning a bottle placed in the center of the table. The bottle points to a participant who then chooses a shot for someone else to take.')
 game_12.photo.attach(io: file, filename: "game12.png", content_type: "image/jpg")
 game_12.save
 
-file = URI.open("https://icons8.com/icon/9239/alligator")
+file = URI.open("https://img.icons8.com/?size=512&id=9239&format=png")
 game_13 = Game.create(title: "Word Association", rules: 'Players take turns saying a word that is associated with the previous word. The game continues quickly, and anyone who fails to come up with a related word within a few seconds drinks.')
 game_13.photo.attach(io: file, filename: "game13.png", content_type: "image/jpg")
 game_13.save
 
-file = URI.open("https://icons8.com/icon/9210/snail")
+file = URI.open("https://img.icons8.com/?size=512&id=79364&format=png")
 game_14 = Game.create(title: "Cheers to the Left", rules: 'Players sit in a circle and take turns saying "Cheers to the left!" while raising their glasses and taking a drink. The person to the left must quickly say "Cheers to the right!" and take a drink.')
 game_14.photo.attach(io: file, filename: "game14.png", content_type: "image/jpg")
 game_14.save
 
-file = URI.open("https://icons8.com/icon/9889/coconut-cocktail")
+file = URI.open("https://img.icons8.com/?size=512&id=9889&format=png")
 game_15 = Game.create(title: "Simon Says Drink", rules: 'Similar to the classic game Simon Says, one person takes the role of "Simon" and gives instructions starting with "Simon says." If Simon says, "Simon says drink," everyone takes a drink. If Simon gives an instruction without saying "Simon says," anyone who follows the command drinks.')
 game_15.photo.attach(io: file, filename: "game15.png", content_type: "image/jpg")
 game_15.save
 
-file = URI.open("https://icons8.com/icon/59383/hiragana-ha")
+file = URI.open("https://img.icons8.com/?size=512&id=59383&format=png")
 game_16 = Game.create(title: "Alphabet Categories", rules: 'Choose a category (e.g., animals, countries, food). Starting with a player, each person has to name something from that category that begins with the next letter of the alphabet. If someone fails to answer or repeats something already said, they drink.')
 game_16.photo.attach(io: file, filename: "game16.png", content_type: "image/jpg")
 game_16.save
 
-file = URI.open("https://icons8.com/icon/59383/hiragana-ha")
+file = URI.open("https://img.icons8.com/?size=512&id=O0q2nI96XtfJ&format=png")
 game_17 = Game.create(title: "Buzzword", rules: 'Select a buzzword or a forbidden word at the beginning of the evening. Whenever someone says the word, they have to take a drink. The person who catches others saying the word assigns the penalty.')
 game_17.photo.attach(io: file, filename: "game17.png", content_type: "image/jpg")
 game_17.save
 
-file = URI.open("https://icons8.com/icon/9480/literature")
+file = URI.open("https://img.icons8.com/?size=512&id=9480&format=png")
 game_18 = Game.create(title: "Story Time", rules: 'One person starts a story with a sentence. Then, each player adds one sentence to continue the story. The story goes around the circle, and if someone forgets or messes up the story, they take a drink.')
 game_18.photo.attach(io: file, filename: "game18.png", content_type: "image/jpg")
 game_18.save
 
-file = URI.open("https://icons8.com/icon/58097/tango")
+
+file = URI.open("https://img.icons8.com/?size=512&id=58097&format=png")
 game_19 = Game.create(title: "Dance-Off", rules: 'Challenge another participant to a dance-off. Take turns showcasing your best dance moves, and the rest of the group determines the winner. The loser drinks, and a new challenger can step forward')
 game_19.photo.attach(io: file, filename: "game19.png", content_type: "image/jpg")
 game_19.save
 
-file = URI.open("https://icons8.com/icon/7844/crazy")
+file = URI.open("https://img.icons8.com/?size=512&id=7844&format=png")
 game_20 = Game.create(title: "Emoji Interpretation", rules: 'Share a popular or random emoji with the group, and each person must come up with the funniest or most creative interpretation of what it represents. The person with the best interpretation gets to assign a drink.')
 game_20.photo.attach(io: file, filename: "game20.png", content_type: "image/jpg")
 game_20.save
 
-file = URI.open("https://icons8.com/icon/10325/micro")
+file = URI.open("https://img.icons8.com/?size=512&id=10325&format=png")
 game_21 = Game.create(title: "Blind Taste Test", rules: 'Blindfold a participant and give them different shots or drink samples. They have to guess the type of alcohol or beverage they are tasting. If they guess incorrectly, they take a drink.')
 game_21.photo.attach(io: file, filename: "game21.png", content_type: "image/jpg")
 game_21.save
 
-file = URI.open("https://icons8.com/icon/9010/movie")
+file = URI.open("https://img.icons8.com/?size=512&id=9010&format=png")
 game_22 = Game.create(title: "Charades", rules: 'Act out a movie, song, or book without speaking, and the others have to guess what it is. The person who fails to guess correctly takes a drink, and a new actor takes their turn.')
 game_22.photo.attach(io: file, filename: "game22.png", content_type: "image/jpg")
 game_22.save
 
-file = URI.open("https://icons8.com/icon/41273/speed")
+file = URI.open("https://img.icons8.com/?size=512&id=41273&format=png")
 game_23 = Game.create(title: "Speed Questions", rules: 'Each player must ask a rapid-fire question to the person next to them. The questions can be as silly or challenging as desired. If someone hesitates or repeats a question, they take a drink.')
 game_23.photo.attach(io: file, filename: "game23.png", content_type: "image/jpg")
 game_23.save
 
-file = URI.open("https://icons8.com/icon/84635/earth-planet")
+file = URI.open("https://img.icons8.com/?size=512&id=84635&format=png")
 game_24 = Game.create(title: "World Tour", rules: 'A challenge to be done during a pub crawl with international bars. Each participant must order a typical drink from a different country at each stop. The challenge is to taste exotic beverages and discover new flavors.')
 game_24.photo.attach(io: file, filename: "game24.png", content_type: "image/jpg")
 game_24.save
 
-file = URI.open("https://icons8.com/icon/BfXI0CM8A8-S/couple-posing")
+file = URI.open("https://img.icons8.com/?size=512&id=BfXI0CM8A8-S&format=png")
 game_25 = Game.create(title: "Tandem Shot Challenge", rules: "Participants form teams of two. Each team has to order a 'tandem shot,' where both partners have to drink the shot at the same time, without stopping until it's empty. The team that finishes the fastest wins, and the other teams have to drink.")
 game_25.photo.attach(io: file, filename: "game25.png", content_type: "image/jpg")
 game_25.save
 
-file = URI.open("https://icons8.com/icon/36114/adam-sandler")
+file = URI.open("https://img.icons8.com/?size=512&id=36114&format=png")
 game_26 = Game.create(title: "Movie Quote Game", rules: 'Players take turns quoting lines from movies. The next person must guess which movie the quote is from. If they guess correctly, the person who said the quote drinks. Otherwise, they drink.')
 game_26.photo.attach(io: file, filename: "game26.png", content_type: "image/jpg")
 game_26.save

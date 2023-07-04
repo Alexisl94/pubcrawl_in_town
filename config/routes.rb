@@ -13,5 +13,4 @@ Rails.application.routes.draw do
     end
     get "/get_markers", to: "events#get_markers"
   end
-  get '/notifications/check_message', to: 'events#check_notification_message'
 end

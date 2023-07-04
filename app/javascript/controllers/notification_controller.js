@@ -1,27 +1,32 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["containerNotif"]
+  static targets = ["containerNotif", "message1", "message2", "message3"]
+  static values = {
+    url: String
+  }
+
 
   connect() {
-    console.log("hello")
-    this.refresh()
   }
 
-  refresh() {
-    setInterval(() => {
-      this.fetchNotificationMessage()
-    }, 5000)
-  }
+  // addMessage() {
+  //   this.message1Target.classList.remove("d-none")
+  //   setInterval(() => {
+  //     this.message2Target.classList.remove("d-none")
+  //   }, 2000);
+  //   setInterval(() => {
+  //     this.message3Target.classList.remove("d-none")
+  //   }, 4000);
+  // }
 
-  fetchNotificationMessage() {
-    fetch("/notifications/check_message")
-      .then(response => response.text())
-      .then(text => {
-        this.containerNotifTarget.innerHTML = text
-      })
-      .catch(error => {
-        console.error(error)
-      })
+  addMessage1() {
+    this.message1Target.classList.remove("d-none")
+  }
+  addMessage2() {
+    this.message2Target.classList.remove("d-none")
+  }
+  addMessage3() {
+    this.message3Target.classList.remove("d-none")
   }
 }

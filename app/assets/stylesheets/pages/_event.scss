@@ -34,6 +34,7 @@
 .notification {
   color: white;
   font-size: 16px;
+  text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px;
 }
 
 .notification.hidden {
@@ -46,7 +47,7 @@
   font-size: 20px;
   border-radius: 5px;
   box-shadow: 1px 1px 10px 1px #FFFFFF;
-  margin: 20px;
+  margin: 20px 20px 0 20px;
 }
 
 .chat-input {
@@ -54,4 +55,25 @@
   margin-right: 15px;
   border-radius: 5px;
   border: 1px solid white;
+}
+
+.button-invisible {
+  background: transparent;
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+.title-game {
+  font-size: 20px;
+  font-weight: bolder;
+  color: rgb(163, 0, 168);
+  text-align: center;
+}
+
+
+.rules-games {
+  font-size: 15px;
+  font-weight: 300;
+  color: black;
 }

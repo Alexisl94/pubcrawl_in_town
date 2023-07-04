@@ -13,17 +13,23 @@
 <div class="container">
   <br>
   <h4 style="color:white; text-align: center">Notifications</h4>
-  <div class="container-notif card-notif" data-controller="notification" data-notification-target="containerNotif">
-    <ul data-target="container-notif.list">
-      <% current_time = Time.current %>
-      <% if current_time.hour == 13 && current_time.min == 31 %>
-        <li class="notification">Notification pour 21h</li>
-      <% elsif current_time.hour == 13 && current_time.min == 32 %>
-        <li class="notification">Notification pour 22h</li>
-      <% elsif current_time.hour == 13 && current_time.min == 33 %>
-        <li class="notification">Notification pour 23h30</li>
-      <% end %>
+  <div class="container-notif card-notif d-flex flex-column" data-controller="notification" data-notification-target="containerNotif">
+    <ul class="flex-grow-1">
+      <li class='notification d-none' data-notification-target="message1"><strong>09:00 PM</strong>- Meeting point, go to <%= @event.pubcrawl.first_bar.name %></li>
+      <li class='notification d-none' data-notification-target="message2"><strong>10.30 PM</strong> - Time to move to <%=  @event.pubcrawl.middle_bar.name %></li>
+      <li class='notification d-none' data-notification-target="message3"><strong>11:30 PM</strong> - Let's make our way to <%=  @event.pubcrawl.last_bar.name %></li>
     </ul>
+    <div class="mt-auto">
+      <div class="row w-100">
+        <div class="col-4"><button class="button-invisible" data-action="click->notification#addMessage1"></button></div>
+        <div class="col-4"><button class="button-invisible" data-action="click->notification#addMessage2"></button></div>
+        <div class="col-4"><button class="button-invisible" data-action="click->notification#addMessage3"></button></div>
+      </div>
+    </div>
+  </div>
+    <br>
+  <div style="text-align: center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <i class="fa-solid fa-dice fa-2xl" style="color: #ffffff"></i>
   </div>
   <br>
   <h4 style="color:white; text-align: center">Let's chat with your buddies !</h4>
@@ -83,3 +89,4 @@
 <br>
 <br>
 <br>
+<%= render "events/modale" %>
