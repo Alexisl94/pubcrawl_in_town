@@ -15,7 +15,7 @@ Chatroom.destroy_all
 User.destroy_all
 
 file = File.open("app/assets/images/avatar1.png")
-user = User.create!(id: 1, email: "admin@wagon.fr", nickname: "MASTER", password: "aloalo")
+user = User.create!(email: "admin@wagon.fr", nickname: "MASTER", password: "aloalo")
 user.avatar.attach(io: file, filename: "avatar1.png", content_type: "image/jpg")
 user.save
 
