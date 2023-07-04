@@ -31,10 +31,15 @@
         <p>No reviews yet.</p>
       <% end %>
     </div>
+    <button type="button" class="button-review" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    See more reviews
+    </button>
     <hr style="color: white">
     <div class="form-container">
       <%= simple_form_for [@pubcrawl, @event] do |f| %>
-          <%= number_field_tag :people %>
+          <p>Do you bring friends ? How many ? (max: 10)</p>
+          <%= number_field_tag :people, nil, in: 1...10, class:"input-box" %>
+
           <%= f.input :date,
                       label: "Select date",
                       as: :string,
@@ -45,4 +50,5 @@
     </div>
 
   </div>
+  <%= render "pubcrawls/modale" %>
 </body>
