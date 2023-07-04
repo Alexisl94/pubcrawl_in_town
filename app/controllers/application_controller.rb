@@ -8,8 +8,8 @@ class ApplicationController < ActionController::Base
   private
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :avatar, :password, :password_confirmation, :email])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :avatar, :password, :password_confirmation, :email, :description])
     # For additional in app/views/devise/registrations/edit.html.erb
-    devise_parameter_sanitizer.permit(:account_update, keys: [:nickname, :avatar, :password, :password_confirmation, :email])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:nickname, :avatar, :password, :password_confirmation, :email, :description])
   end
 end
