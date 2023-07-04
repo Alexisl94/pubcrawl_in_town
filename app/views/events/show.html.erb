@@ -60,27 +60,17 @@
   <ul>
     <% @event.bookings.each do |booking| %>
       <% if booking.user.nickname != "MASTER" %>
-        <li style="list-style: none; color:white"> <%= cl_image_tag booking.user.avatar.key, class:"avatar" %> <%= booking.user.nickname %> + <%= booking.people %></li>
+        <li style="list-style: none; color:white"> <%= cl_image_tag booking.user.avatar.key, class:"avatar" %>
+        <%= booking.user.nickname %>
+         <% if booking.people %>
+          <strong>+</strong>
+          <strong><%= booking.people %></strong>
+          <% end %>
+        </li>
         <%end%>
     <%end%>
   </ul>
-  <hr style="color: white">
-  <div>
-    <p>Last reviews :</p>
-    <div>
-      <% @event.reviews.each do |review| %>
-        <div>
-          <% review.rating.times do %>
-            <i class="fas fa-star" style="color: #fbff00;"></i>
-          <% end %>
-          <% (5 - review.rating).times do %>
-            <i class="far fa-star" style="color: white"></i>
-          <% end %>
-          <p style="font-size: 15px"><%= review.comment %></p>
-          <hr style="color: white">
-        </div>
-      <% end %>
-    </div>
+    <br>
     <div class="all-buton" style="justify-content: center">
       <%= link_to "Give a review", new_event_review_path(@event), class:"button-pink-invalid" %>
     </div>

@@ -1,0 +1,26 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <p class="title-review"><strong>Last reviews</strong></p>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <% @pubcrawl.reviews.each do |review| %>
+            <div class="card-review">
+              <% review.rating.times do %>
+              <i class="fas fa-star" style="color: #fbff00;"></i>
+              <% end %>
+            <% (5 - review.rating).times do %>
+              <i class="far fa-star" style="color: white"></i>
+            <% end %>
+          <p class="description-review"><%= review.comment %></p>
+        </div>
+      <% end %>
+    </div>
+      </div>
+    </div>
+  </div>
+</div>
