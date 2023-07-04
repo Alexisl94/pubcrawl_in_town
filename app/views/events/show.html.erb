@@ -56,21 +56,33 @@
   <h4 style="color:white; text-align: center">Meeting point</h4>
   <div data-controller="map" data-map-url-value="<%=event_get_markers_url(@event)%>" data-map-status-value="<%= @event.status %>" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" data-toggle-map-target="map" data-action="click->map#refreshMap" style="height: 300px !important; width: 100%; margin-top: 15px; border: 0.5px solid white; border-radius: 15px;"></div>
   <br>
-  <p>Pubcrawlers</p>
-  <ul>
+<p>Pubcrawlers</p>
+  <div>
     <% @event.bookings.each do |booking| %>
       <% if booking.user.nickname != "MASTER" %>
-        <li style="list-style: none; color:white"> <%= cl_image_tag booking.user.avatar.key, class:"avatar" %>
-        <%= booking.user.nickname %>
+         <div style="color:white" data-bs-toggle="modal" data-bs-target="#userModal-<%= booking.user.id %>">
+      <%= cl_image_tag booking.user.avatar.key, class:"avatar" %>
+       <%= booking.user.nickname %>
          <% if booking.people %>
           <strong>+</strong>
           <strong><%= booking.people %></strong>
           <% end %>
-        </li>
-        <%end%>
-    <%end%>
-  </ul>
-    <br>
+    </div>
+      <!-- Modal -->
+    <div class="modal fade" id="userModal-<%= booking.user.id %>" tabindex="-1" aria-labelledby="userModalLabel-<%= booking.user.id %>" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body">
+            <%= cl_image_tag booking.user.avatar.key, class: "avatar"%>
+            <%= booking.user.nickname %>
+            <%= booking.user.description %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+  <hr style="color: white">
     <div class="all-buton" style="justify-content: center">
       <%= link_to "Give a review", new_event_review_path(@event), class:"button-pink-invalid" %>
     </div>
