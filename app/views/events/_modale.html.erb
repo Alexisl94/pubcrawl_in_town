@@ -1,15 +1,100 @@
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+<div class="modal " id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <div class="modal-header">
-        <% game = Game.all.sample %>
-        <div style="justify-content: center"><%= cl_image_tag game.photo.key, class:"avatar-games" %></div>
+      <div class="modal-header"> <% game1 = Game.all.sample %>
+        <div style="justify-content: center"><%= cl_image_tag game1.photo.key, class:"avatar-games" %></div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body modal-game-border">
+        <h1 class="title-game" id="exampleModalToggleLabel">"<%= game1.title %>"</h1>
+        <h2 class="rules-games" id="exampleModalToggleLabel"><%= game1.rules %></h2>
+      </div>
+      <div class="modal-footer">
+        <div style="text-align: center" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"> <i class="fa-solid fa-rotate-right fa-2xl" style="color: #810ca8;"></i></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal " id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header"> <% game2 = Game.all.sample %>
+        <% while game2.id == game1.id do %>
+            <% game2 = Game.all.sample %>
+          <% end %>
+        <div style="justify-content: center"><%= cl_image_tag game2.photo.key, class:"avatar-games" %></div>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <h1 class="title-game" id="exampleModalLabel">"<%= game.title %>"</h1>
-        <h2 class="rules-games" id="exampleModalLabel"><%= game.rules %></h2>
+        <h1 class="title-game" id="exampleModalToggleLabel2">"<%= game2.title %>"</h1>
+        <h2 class="rules-games" id="exampleModalToggleLabel2"><%= game2.rules %></h2>
+      </div>
+      <div class="d-flex modal-footer justify-content-between">
+        <div style="text-align: center" data-bs-target="#exampleModalToggle" data-bs-toggle="modal"> <i class="fa-solid fa-rotate-left fa-2xl" style="color: #810ca8;"></i></div>
+        <div style="text-align: center" data-bs-target="#exampleModalToggle3" data-bs-toggle="modal"> <i class="fa-solid fa-rotate-right fa-2xl" style="color: #810ca8;"></i></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal " id="exampleModalToggle3" aria-hidden="true" aria-labelledby="exampleModalToggleLabel3" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header"> <% game3 = Game.all.sample %>
+      <% while game3.id == game1.id || game3.id == game2.id do %>
+          <% game3 = Game.all.sample %>
+          <% end %>
+        <div style="justify-content: center"><%= cl_image_tag game3.photo.key, class:"avatar-games" %></div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h1 class="title-game" id="exampleModalToggleLabel3">"<%= game3.title %>"</h1>
+        <h2 class="rules-games" id="exampleModalToggleLabel3"><%= game3.rules %></h2>
+      </div>
+      <div class="d-flex modal-footer justify-content-between">
+        <div style="text-align: center" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"> <i class="fa-solid fa-rotate-left fa-2xl" style="color: #810ca8;"></i></div>
+        <div style="text-align: center" data-bs-target="#exampleModalToggle4" data-bs-toggle="modal"> <i class="fa-solid fa-rotate-right fa-2xl" style="color: #810ca8;"></i></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal " id="exampleModalToggle4" aria-hidden="true" aria-labelledby="exampleModalToggleLabel4" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header"> <% game4 = Game.all.sample %>
+       <% while game4.id == game1.id || game4.id == game2.id || game4.id == game3.id do %>
+          <% game4 = Game.all.sample %>
+          <% end %>
+        <div style="justify-content: center"><%= cl_image_tag game4.photo.key, class:"avatar-games" %></div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h1 class="title-game" id="exampleModalToggleLabel4">"<%= game4.title %>"</h1>
+        <h2 class="rules-games" id="exampleModalToggleLabel4"><%= game4.rules %></h2>
+      </div>
+      <div class="d-flex modal-footer justify-content-between">
+        <div style="text-align: center" data-bs-target="#exampleModalToggle3" data-bs-toggle="modal"> <i class="fa-solid fa-rotate-left fa-2xl" style="color: #810ca8;"></i></div>
+        <div style="text-align: center" data-bs-target="#exampleModalToggle5" data-bs-toggle="modal"> <i class="fa-solid fa-rotate-right fa-2xl" style="color: #810ca8;"></i></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal " id="exampleModalToggle5" aria-hidden="true" aria-labelledby="exampleModalToggleLabel5" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header"> <% game5 = Game.all.sample %>
+       <% while game5.id == game1.id || game5.id == game2.id || game5.id == game3.id || game5.id == game4.id do %>
+          <% game5 = Game.all.sample %>
+          <% end %>
+        <div style="justify-content: center"><%= cl_image_tag game5.photo.key, class:"avatar-games" %></div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h1 class="title-game" id="exampleModalToggleLabel4">"<%= game5.title %>"</h1>
+        <h2 class="rules-games" id="exampleModalToggleLabel4"><%= game5.rules %></h2>
+      </div>
+      <div class="d-flex modal-footer justify-content-between">
+        <div style="text-align: center" data-bs-target="#exampleModalToggle4" data-bs-toggle="modal"> <i class="fa-solid fa-rotate-left fa-2xl" style="color: #810ca8;"></i></div>
       </div>
     </div>
   </div>
