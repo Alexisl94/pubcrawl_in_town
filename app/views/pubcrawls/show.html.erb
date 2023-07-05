@@ -6,7 +6,7 @@
 <body>
   <div class="container">
   <br>
-  <%= link_to "Back to #{@pubcrawl.location} pubcrawls", pubcrawls_path(location: @pubcrawl.location), class:"go-back-button", style:"margin: 10px 0 0 10px;" %>
+  <%= link_to "⇽ Back to #{@pubcrawl.location} pubcrawls", pubcrawls_path(location: @pubcrawl.location), class:"go-back-button", style:"margin: 10px 0 0 10px;" %>
     <div style="display: flex; justify-content: center;">
       <%= cl_image_tag @pubcrawl.photo.key, class:"img-show" %>
     </div>
