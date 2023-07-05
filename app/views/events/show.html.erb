@@ -7,20 +7,20 @@
   <div class="red-point"></div>
   <div class="live-event"><h2 style="color: white; text-shadow: 1px 1px 2px grey">LIVE EVENT</h2></div>
 </div>
-<div class="container">
+<div class="container" data-controller="map" data-map-status-value = "<%= @event.status %>" data-map-markers-value = "<%= @markers.to_json %>">
   <br>
   <h4 style="color:white; text-align: center">Notifications</h4>
-  <div class="container-notif card-notif d-flex flex-column" data-controller="notification" data-notification-target="containerNotif" data-notification-status-value = "<%= @event.status %>">
+  <div class="container-notif card-notif d-flex flex-column" data-map-target="containerNotif">
     <ul class="flex-grow-1">
-      <li class='notification d-none' data-notification-target="message1"><strong>09:00 PM</strong>- Meeting point, go to <%= @event.pubcrawl.first_bar.name %></li>
-      <li class='notification d-none' data-notification-target="message2"><strong>10.30 PM</strong> - Time to move to <%=  @event.pubcrawl.middle_bar.name %></li>
-      <li class='notification d-none' data-notification-target="message3"><strong>11:30 PM</strong> - Let's make our way to <%=  @event.pubcrawl.last_bar.name %></li>
+      <li class='notification d-none' data-map-target="message1"><strong>09:00 PM</strong>- Meeting point, go to <%= @event.pubcrawl.first_bar.name %></li>
+      <li class='notification d-none' data-map-target="message2"><strong>10.30 PM</strong> - Time to move to <%=  @event.pubcrawl.middle_bar.name %></li>
+      <li class='notification d-none' data-map-target="message3"><strong>11:30 PM</strong> - Let's make our way to <%=  @event.pubcrawl.last_bar.name %></li>
     </ul>
     <div class="mt-auto">
       <div class="row w-100">
-        <div class="col-4"><button class="button-invisible" data-action="click->notification#addMessage1"></button></div>
-        <div class="col-4" data-action="click->notification#addMessage2"><%= button_to "",  event_path(@event), method: :patch, class: "button-invisible step-2", remote: true %></div>
-        <div class="col-4" data-action="click->notification#addMessage3"><%= button_to "",  event_path(@event), method: :patch, class: "button-invisible step-3", remote: true %></div>
+        <div class="col-4"><button class="button-invisible" data-action="click->map#addMessage1"></button></div>
+        <div class="col-4" data-action="click->map#addMessage2 click->map#displayMarker2" ><%= button_to "",  event_path(@event), method: :patch, class: "button-invisible step-2", remote: true %></div>
+        <div class="col-4" data-action="click->map#addMessage3 click->map#displayMarker3"><%= button_to "",  event_path(@event), method: :patch, class: "button-invisible step-3", remote: true %></div>
       </div>
     </div>
   </div>
@@ -51,7 +51,7 @@
   </div>
   <br>
   <h4 style="color:white; text-align: center">Meeting point</h4>
-  <div data-controller="map" data-map-url-value="<%=event_get_markers_url(@event)%>" data-map-status-value="<%= @event.status %>" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" data-toggle-map-target="map" style="height: 300px !important; width: 100%; margin-top: 15px; border: 0.5px solid white; border-radius: 15px;"></div>
+  <div data-map-target="map" data-map-url-value="<%=event_get_markers_url(@event)%>" data-map-status-value="<%= @event.status %>" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" data-toggle-map-target="map" style="height: 300px !important; width: 100%; margin-top: 15px; border: 0.5px solid white; border-radius: 15px;"></div>
   <br>
 <p>Pubcrawlers</p>
   <div>

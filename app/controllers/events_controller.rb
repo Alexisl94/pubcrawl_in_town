@@ -8,19 +8,29 @@ class EventsController < ApplicationController
     @chatroom = @event.chatroom
     @message = Message.new
     # @time_message = timing(@message)
+    bars = [@event.pubcrawl.first_bar, @event.pubcrawl.middle_bar, @event.pubcrawl.last_bar]
+    @markers = bars.each_with_index.map do |bar, index|
+      {
+        lat: bar.latitude,
+        lng: bar.longitude,
+        status: @event.status,
+        marker_html: render_to_string(partial: "marker", locals: {bar: bar, num: index+1}),
+        info_window_html: render_to_string(partial: "info_window", locals: {bar: bar, num: index+1})
+      }
+    end
   end
 
 
   def get_markers
     @event = Event.find(params[:event_id])
-    case @event.status
-    when 1
-      @markers = [@event.pubcrawl.first_bar]
-    when 2
-      @markers = [@event.pubcrawl.first_bar, @event.pubcrawl.middle_bar]
-    when 3
-      @markers = [@event.pubcrawl.first_bar, @event.pubcrawl.middle_bar, @event.pubcrawl.last_bar]
-    end
+    # case @event.status
+    # when 1
+    #   @markers = [@event.pubcrawl.first_bar]
+    # when 2
+    #   @markers = [@event.pubcrawl.first_bar, @event.pubcrawl.middle_bar]
+    # when 3
+    #   @markers = [@event.pubcrawl.first_bar, @event.pubcrawl.middle_bar, @event.pubcrawl.last_bar]
+    # end
 
     @markers = @markers.each_with_index.map do |bar, index|
       {
@@ -31,7 +41,7 @@ class EventsController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: {bar: bar, num: index+1})
       }
     end
-    render json: @markers
+    # render json: @markers
   end
 
   def create
