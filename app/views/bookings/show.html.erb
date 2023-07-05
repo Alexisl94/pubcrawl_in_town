@@ -17,6 +17,6 @@
     <p style="margin: 15px 5px 20px 5px">Your event is booked, ready to go ? </p>
     <div class="button-container">
       <%= link_to "Lets go !", event_path(@booking.event), class: 'button-pink-valid', style:"width: 75%; margin-bottom: 10px" %>
-      <%= link_to "Not yet !", pubcrawls_path, class: 'button-pink-invalid', style:"width: 75%" %>
+      <%= link_to "Not yet !", bookings_path, class: 'button-pink-invalid', style:"width: 75%" %>
       </div>
   </div>

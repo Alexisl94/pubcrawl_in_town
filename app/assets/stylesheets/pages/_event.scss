@@ -4,6 +4,9 @@
   background-color: #E5B8F4;
   padding-left: 0px;
   padding-right: 0px;
+  align-items: center;
+  display: flex;
+  position: relative;
 }
 
 .red-point {
@@ -11,6 +14,18 @@
   height: 10px;
   background-color: red;
   border-radius: 50%;
+  margin-left: 5px;
+  margin-right: 5px;
+  position: absolute;
+  left: 95px;
+  top: 16px;
+}
+
+.live-event {
+  color: white;
+  text-shadow: 1px 1px 2px grey;
+  position: absolute;
+  left: 132px;
 }
 
 .notifications-container {
