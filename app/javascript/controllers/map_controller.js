@@ -10,70 +10,53 @@ export default class extends Controller {
     url: String
   }
 
+  static targets = ["map", "containerNotif", "message1", "message2", "message3"]
+
   connect() {
-    mapboxgl.accessToken = this.apiKeyValue
-    this.map = new mapboxgl.Map({
-      container: this.element,
+    this.initMessages()
+    mapboxgl.accessToken = this.mapTarget.dataset.mapApiKeyValue
+    this.mapTarget.map = new mapboxgl.Map({
+      container: this.mapTarget,
       style: 'mapbox://styles/mapbox/dark-v11',
       zoom: 1
     })
-    this.fetchWithToken(this.urlValue, {})
-    document.querySelector('.step-2').addEventListener('click', this.handleClick.bind(this))
-    document.querySelector('.step-3').addEventListener('click', this.handleClick.bind(this))
+    this.#addMarkersToMap()
+    this.#focusMapOnMarker()
   }
 
-
-  handleClick(event) {
-    setTimeout(() => {
-      this.#refreshMap();
-    }, 500);
+  initMessages() {
+    if (this.statusValue === 1) {
+    } else if (this.statusValue === 2) {
+      this.addMessage1()
+      this.addMessage2()
+    } else if (this.statusValue === 3) {
+      this.addMessage1()
+      this.addMessage2()
+      this.addMessage3()
+    }
   }
 
-  fetchWithToken(url, options) {
-    options.credentials = "same-origin";
+  addMessage1() {
+    this.message1Target.classList.remove("d-none")
 
-    return fetch(url, options)
-      .then(response => response.json())
-      .then((data) => {
-        this.#addMarkersToMap(data)
-        this.#focusMapOnMarker(data)
-      })
-      .catch((error) => console.log(error))
+  }
+  addMessage2() {
+    this.message2Target.classList.remove("d-none")
+  }
+  addMessage3() {
+    this.message3Target.classList.remove("d-none")
   }
 
-  #refreshMap() {
-    this.#removeMarkersFromMap()
-    this.#removeItineraryLine()
-    this.fetchWithToken(this.urlValue, {})
-  }
-
-
-  #removeMarkersFromMap() {
-    const mapMarkers = this.element.querySelectorAll('.mapboxgl-marker');
-    mapMarkers.forEach(marker => {
-      marker.remove();
-    });
-  }
-
-  #addMarkersToMap(data) {
-    const coordinates = [];
-
-    data.forEach((marker) => {
-      const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
-      const customMarker = document.createElement("div")
-      customMarker.innerHTML = marker.marker_html
-      new mapboxgl.Marker(customMarker)
-        .setLngLat([ marker.lng, marker.lat ])
-        .setPopup(popup)
-        .addTo(this.map)
-      coordinates.push([marker.lng, marker.lat]);
-    })
-    this.drawItineraryLine(coordinates);
-  }
-
-  #focusMapOnMarker(data) {
-    const marker = data[data.length - 1];
-    this.map.flyTo({
+  displayMarker2() {
+    const marker = this.markersValue[1]
+    const customMarker = document.createElement("div")
+    customMarker.innerHTML = marker.marker_html
+    const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
+    const mapMarker = new mapboxgl.Marker(customMarker)
+      .setLngLat([marker.lng, marker.lat])
+      .setPopup(popup)
+      .addTo(this.mapTarget.map);
+    this.mapTarget.map.flyTo({
       center: [marker.lng, marker.lat],
       zoom: 15,
       padding: 70,
@@ -81,44 +64,46 @@ export default class extends Controller {
     });
   }
 
-  drawItineraryLine(coordinates) {
-    const geojson = {
-      type: 'FeatureCollection',
-      features: [
-        {
-          type: 'Feature',
-          geometry: {
-            type: 'LineString',
-            coordinates: coordinates,
-          },
-        },
-      ],
-    };
-
-    this.map.addSource('itinerary', {
-      type: 'geojson',
-      data: geojson,
-    });
-
-    this.map.addLayer({
-      id: 'itinerary-line',
-      type: 'line',
-      source: 'itinerary',
-      layout: {
-        'line-join': 'round',
-        'line-cap': 'round',
-      },
-      paint: {
-        'line-color': 'rgb(239, 11, 190)',
-        'line-width': 3,
-      },
+  displayMarker3() {
+    const marker = this.markersValue[2]
+    const customMarker = document.createElement("div")
+    customMarker.innerHTML = marker.marker_html
+    const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
+    const mapMarker = new mapboxgl.Marker(customMarker)
+      .setLngLat([marker.lng, marker.lat])
+      .setPopup(popup)
+      .addTo(this.mapTarget.map);
+    this.mapTarget.map.flyTo({
+      center: [marker.lng, marker.lat],
+      zoom: 15,
+      padding: 70,
+      duration: 0
     });
   }
 
-  #removeItineraryLine() {
-    if (this.map.getSource('itinerary')) {
-      this.map.removeLayer('itinerary-line');
-      this.map.removeSource('itinerary');
-    }
+
+  #addMarkersToMap() {
+    const coordinates = [];
+    const markers = this.markersValue.slice(0, this.statusValue)
+    markers.forEach((marker, index) => {
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
+      const customMarker = document.createElement("div")
+      customMarker.innerHTML = marker.marker_html
+      new mapboxgl.Marker(customMarker)
+        .setLngLat([marker.lng, marker.lat])
+        .setPopup(popup)
+        .addTo(this.mapTarget.map);
+      coordinates.push([marker.lng, marker.lat]);
+    });
+  }
+
+  #focusMapOnMarker() {
+    const marker = this.markersValue[this.statusValue-1];
+    this.mapTarget.map.flyTo({
+      center: [marker.lng, marker.lat],
+      zoom: 15,
+      padding: 70,
+      duration: 0
+    });
   }
 }
