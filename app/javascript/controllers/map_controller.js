@@ -22,6 +22,11 @@ export default class extends Controller {
     })
     this.#addMarkersToMap()
     this.#focusMapOnMarker()
+    if (this.statusValue == 3) {
+      this.fetchRoute(2, 1)
+    } else if (this.statusValue == 2) {
+      this.fetchRoute(1, 0)
+    }
   }
 
   initMessages() {
@@ -62,6 +67,7 @@ export default class extends Controller {
       padding: 70,
       duration: 0
     });
+    this.fetchRoute(1, 0)
   }
 
   displayMarker3() {
@@ -79,6 +85,7 @@ export default class extends Controller {
       padding: 70,
       duration: 0
     });
+    this.fetchRoute(2, 1)
   }
 
 
@@ -106,4 +113,55 @@ export default class extends Controller {
       duration: 0
     });
   }
+
+  fetchRoute(start, end) {
+    const startMarker = this.markersValue[start];
+    const endMarker = this.markersValue[end];
+    const url = `https://api.mapbox.com/directions/v5/mapbox/walking/${startMarker.lng},${startMarker.lat};${endMarker.lng},${endMarker.lat}?geometries=geojson&access_token=${this.mapTarget.dataset.mapApiKeyValue}`;
+
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        const route = data.routes[0];
+        const coordinates = route.geometry.coordinates;
+
+        const geojson = {
+          type: 'Feature',
+          properties: {},
+          geometry: {
+            type: 'LineString',
+            coordinates: coordinates
+          }
+        };
+
+        // if the route already exists on the map, we'll reset it using setData
+        if (this.mapTarget.map.getSource('route')) {
+          this.mapTarget.map.getSource('route').setData(geojson);
+        }
+        // otherwise, we'll make a new request
+        else {
+          this.mapTarget.map.addLayer({
+            id: 'route',
+            type: 'line',
+            source: {
+              type: 'geojson',
+              data: geojson
+            },
+            layout: {
+              'line-join': 'round',
+              'line-cap': 'round'
+            },
+            paint: {
+              'line-color': 'rgb(239, 11, 190)',
+              'line-width': 5,
+              'line-opacity': 0.75
+            }
+          });
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching route:', error);
+      });
+  }
+
 }
