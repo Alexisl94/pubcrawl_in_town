@@ -18,6 +18,15 @@ export default class extends Controller {
       zoom: 1
     })
     this.fetchWithToken(this.urlValue, {})
+    document.querySelector('.step-2').addEventListener('click', this.handleClick.bind(this))
+    document.querySelector('.step-3').addEventListener('click', this.handleClick.bind(this))
+  }
+
+
+  handleClick(event) {
+    setTimeout(() => {
+      this.#refreshMap();
+    }, 500);
   }
 
   fetchWithToken(url, options) {
@@ -32,8 +41,9 @@ export default class extends Controller {
       .catch((error) => console.log(error))
   }
 
-  refreshMap() {
+  #refreshMap() {
     this.#removeMarkersFromMap()
+    this.#removeItineraryLine()
     this.fetchWithToken(this.urlValue, {})
   }
 
@@ -46,6 +56,8 @@ export default class extends Controller {
   }
 
   #addMarkersToMap(data) {
+    const coordinates = [];
+
     data.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
       const customMarker = document.createElement("div")
@@ -54,7 +66,9 @@ export default class extends Controller {
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
         .addTo(this.map)
+      coordinates.push([marker.lng, marker.lat]);
     })
+    this.drawItineraryLine(coordinates);
   }
 
   #focusMapOnMarker(data) {
@@ -65,5 +79,46 @@ export default class extends Controller {
       padding: 70,
       duration: 0
     });
+  }
+
+  drawItineraryLine(coordinates) {
+    const geojson = {
+      type: 'FeatureCollection',
+      features: [
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'LineString',
+            coordinates: coordinates,
+          },
+        },
+      ],
+    };
+
+    this.map.addSource('itinerary', {
+      type: 'geojson',
+      data: geojson,
+    });
+
+    this.map.addLayer({
+      id: 'itinerary-line',
+      type: 'line',
+      source: 'itinerary',
+      layout: {
+        'line-join': 'round',
+        'line-cap': 'round',
+      },
+      paint: {
+        'line-color': 'rgb(239, 11, 190)',
+        'line-width': 3,
+      },
+    });
+  }
+
+  #removeItineraryLine() {
+    if (this.map.getSource('itinerary')) {
+      this.map.removeLayer('itinerary-line');
+      this.map.removeSource('itinerary');
+    }
   }
 }

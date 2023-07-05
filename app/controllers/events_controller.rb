@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:get_markers]
-  before_action :set_event, only: %i[show]
+  before_action :set_event, only: %i[show update]
   before_action :set_pubcrawl, only: [:create]
   before_action :cors_set_access_control_headers, only: [:get_markers]
 
@@ -57,6 +57,13 @@ class EventsController < ApplicationController
     end
   end
 
+  def update
+    if @event.status < 3
+      @event.status += 1
+      @event.save
+    end
+  end
+
   # def timing(message)
   #   now = Time.now
   #   date_message = Time.parse(message.created_at)
@@ -87,7 +94,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:date, :people)
+    params.require(:event).permit(:date, :people, :status)
   end
 
   def set_pubcrawl

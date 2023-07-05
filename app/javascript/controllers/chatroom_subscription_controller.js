@@ -10,7 +10,7 @@ export default class extends Controller {
       { channel: "ChatroomChannel", id: this.chatroomIdValue },
       { received: data => this.#insertMessageAndScrollDown(data) }
     )
-    console.log(`Subscribed to the chatroom with the id ${this.chatroomIdValue}.`)
+    // console.log(`Subscribed to the chatroom with the id ${this.chatroomIdValue}.`)
     // window.onload = () => {
     //   const scrollPosition = sessionStorage.getItem("scrollPosition");
     //   console.log(scrollPosition)
@@ -23,7 +23,7 @@ export default class extends Controller {
   }
 
   resetForm(event) {
-    console.log("hello")
+    // console.log("hello")
     event.target.reset()
     this.update()
     // this.saveScrollPosition()
@@ -33,7 +33,7 @@ export default class extends Controller {
   }
 
   disconnect() {
-    console.log("Unsubscribed from the chatroom")
+    // console.log("Unsubscribed from the chatroom")
     this.channel.unsubscribe()
   }
 
