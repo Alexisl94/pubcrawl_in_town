@@ -19,7 +19,7 @@
     <% elsif params[:filter] == 'upcoming' %>
       <% @filtered_bookings = @bookings.select { |booking| booking.event.date >= Date.today } %>
     <% else %>
-      <% @filtered_bookings = @bookings.select { |booking| booking.event.date < Date.today } %>
+      <% @filtered_bookings = @bookings %>
     <% end %>
     <% @filtered_bookings.each do |booking| %>
       <div class="card mb-3 card-size">
