@@ -24,11 +24,16 @@
       </div>
     </div>
   </div>
-    <br>
-    <div class="row" style="text-align: center" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
-    <i class="fa-solid fa-dice fa-2xl" style="color: #ffffff"></i>
+    <div class="d-flex justify-content-center">
+      <div class="circle" data-controller="animation" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
+        <span class="circle__btn" data-animation-target="circle__btn">
+          <i class="play fa-solid fa-dice fa-md" name="play" data-animation-target="play" data-action="click->animation#playBtn"></i>
+          <i class="pause fa-solid fa-dice fa-md"  name="pause" data-animation-target="pause"></i>
+        </span>
+        <span class="circle__backone" data-animation-target="circle__backone"></span>
+        <span class="circle__backtwo" data-animation-target="circle__backtwo"></span>
+        </div>
     </div>
-  <br>
   <h4 style="color:white; text-align: center">Let's chat with your buddies !</h4>
   <div class="container chatroom" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>" data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
     <div class="messages" data-chatroom-subscription-target="messages">
@@ -89,3 +94,4 @@
 <br>
 <br>
 <%= render "events/modale" %>
+<script src="https://unpkg.com/stimulus/dist/stimulus.umd.js"></script>

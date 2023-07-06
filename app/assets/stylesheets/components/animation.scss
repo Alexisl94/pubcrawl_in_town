@@ -1,0 +1,114 @@
+/*  PLAY BUTTON  */
+:root {
+  --primary-light:  #E5B8F4;
+  --primary:  rgba(255, 0, 221, 0.5);
+  --primary-dark:  #2D033B;
+
+  --white: #FFFFFF;
+  --greyLight-1: #E4EBF5;
+  --greyLight-2: #c8d0e7;
+  --greyLight-3: #bec8e4;
+  --greyDark: #9baacf;
+}
+$shadow: .2rem .2rem .4rem var(--primary-light),
+-.1.5rem -.1.5rem .3rem var(--primary-light);
+$inner-shadow: inset .1rem .1rem .2.5rem var(--primary-light),
+inset -.4rem -.4rem .5rem var(--primary-light);
+.circle {
+  grid-column: 2 / 3;
+  grid-row: 4 / 6;
+  width: 6rem;
+  height: 100%;
+  justify-self: center;
+  border-radius: 1rem;
+  display: grid;
+  grid-template-rows: 1fr;
+  justify-items: center;
+  align-items: center;
+
+  &__btn {
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    margin: 1rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    font-size: 2rem;
+    color: whitesmoke;
+    text-shadow: hoff voff blur  #E5B8F4;
+    border: solid 1px #0000000c;
+    padding: 1rem;
+    z-index: 300;
+    background:  transparent;
+    box-shadow: $shadow;
+    cursor: pointer;
+    position: relative;
+    &.shadow {box-shadow: $inner-shadow;}
+
+    .play {
+      position: absolute;
+      opacity: 0;
+      transition: all .2s linear;
+      &.visibility {
+        opacity: 1;
+      }
+    }
+    .pause {
+      position: absolute;
+      transition: all .2s linear;
+      &.visibility {
+        opacity: 0;
+      }
+    }
+  }
+
+  &__backone, &__backtwo {
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 20px;
+    filter: blur(1px);
+    z-index: 100;
+  }
+
+  &__backone {
+    box-shadow: .3rem .3rem .6rem var(--primary-dark),
+    -.3rem -.4rem .8rem var(--primary-light);
+    background: linear-gradient(to bottom right, var(--primary-dark) 0%, var(primary-light) 100%);
+    animation: waves 6s linear infinite;
+
+    &.paused {
+    animation-play-state: paused;
+    }
+  }
+
+  &__backtwo {
+    box-shadow: .4rem .4rem .8rem var(--primary-dark),
+    -.4rem -.4rem .8rem var(--primary-light);
+    animation: waves 6s linear 3s infinite;
+
+    &.paused {
+      animation-play-state: paused;
+    }
+  }
+}
+
+@keyframes waves {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
