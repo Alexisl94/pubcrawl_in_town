@@ -104,7 +104,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:date, :people, :status)
+    params.require(:event).permit(:date, :status, :people)
   end
 
   def set_pubcrawl
