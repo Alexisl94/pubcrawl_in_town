@@ -75,7 +75,7 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-body">
-          <div class="d-flex justify-content-center"><%= cl_image_tag booking.user.avatar.key, class: "avatar avatar-profile"%></div>
+          <div class="d-flex justify-content-center"><%= cl_image_tag booking.user.avatar.key, class: "avatar avatar-profile-user"%></div>
           <div class="d-flex justify-content-center title-game"><span class="text-center" style="font-size: 20px"><%= booking.user.nickname %></span></div>
           <div class="d-flex justify-content-center rules games"><%= booking.user.description %></div>
           </div>
@@ -86,7 +86,7 @@
 <% end %>
   <hr style="color: white">
     <div class="all-buton" style="justify-content: center">
-      <%= link_to "Give a review", new_event_review_path(@event), class:"button-pink-invalid" %>
+      <%= link_to "Give a review or share your photos", new_event_review_path(@event), class:"button-pink-invalid" %>
     </div>
   </div>
 </div>
