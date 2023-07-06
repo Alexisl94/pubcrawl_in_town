@@ -86,6 +86,41 @@
   </div>
 </div>
 <br>
+<div class="container p-2">
+  <div id="image-slider"  style="display: flex; justify-content: center;">
+    <% @event.reviews.each do |review| %>
+      <% review.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, class: "card-notif", style: 'height: 300px; max-width: 98%; border-radius: 20px; margin-bottom: 5px; border: 0.5px solid white' %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<script>
+  // JavaScript code to create a basic image slider
+  var slideIndex = 0;
+  showSlides();
+
+  function showSlides() {
+    var i;
+    var slides = document.querySelectorAll("#image-slider img");
+
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+
+    slideIndex++;
+
+    if (slideIndex > slides.length) {
+      slideIndex = 1;
+    }
+
+    slides[slideIndex - 1].style.display = "block";
+    setTimeout(showSlides, 1500); // Change slide every 2 seconds
+  }
+</script>
+
+<br>
 <br>
 <br>
 <%= render "events/modale" %>
