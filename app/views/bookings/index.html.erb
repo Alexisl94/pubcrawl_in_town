@@ -2,35 +2,54 @@
   <br>
   <div style="justify-content: center; margin-top: 20px" class="button-container">
     <h1> My bookings </h1>
-</div>
-    <hr style="color: white;">
-
-<div class="container" style="margin-bottom: 20px;">
-  <div style="display: flex; justify-content: space-between; align-items: center;">
-    <%= link_to "Previous", pubcrawls_path, class: 'button-pink-invalid' %>
-    <%= link_to "Upcoming", pubcrawls_path, class: 'button-pink-invalid' %>
   </div>
-</div>
-<hr style="color: white">
+  <hr style="color: white;">
 
-<div class="booking-margin-bot">
-  <% @bookings.each do |booking| %>
-    <div class="card mb-3 card-size">
-      <%= link_to event_path(booking.event), style: "text-decoration: none;" do %>
-      <div class="row g-0">
-        <div class="col-5">
-          <%# <img src="https://images.unsplash.com/photo-1575444758702-4a6b9222336e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cHVifGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="..." class="img-booking-index"> %>
-        <%= cl_image_tag booking.event.pubcrawl.photo.key, class:"img-booking-index" %>
-        </div>
-        <div class="col-7">
-          <div class="card-body card-body-booking">
-            <h2 class="card-title fs-4 text-dark"><%= booking.event.pubcrawl.name %></h2>
-            <p class="card-text text-dark mb-0"><%= booking.event.date.try(:strftime, "%Y-%m-%d") %></p>
-            <p class="card-text text-dark"><%= booking.user.nickname %></p>
-          </div>
-        </div>
-      </div>
-      <% end %>
+  <div class="container" style="margin-bottom: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <%= link_to "Previous", bookings_path(filter: 'previous'), class: 'button-pink-invalid' %>
+      <%= link_to "Upcoming", bookings_path(filter: 'upcoming'), class: 'button-pink-invalid' %>
     </div>
-  <% end %>
+  </div>
+  <hr style="color: white">
+
+  <div class="booking-margin-bot">
+    <% @bookings.each do |booking| %>
+      <% if params[:filter] == 'previous' && booking.event.date < Date.today %>
+        <div class="card mb-3 card-size">
+          <%= link_to event_path(booking.event), style: "text-decoration: none;" do %>
+            <div class="row g-0">
+              <div class="col-5">
+                <%= cl_image_tag booking.event.pubcrawl.photo.key, class:"img-booking-index" %>
+              </div>
+              <div class="col-7">
+                <div class="card-body card-body-booking">
+                  <h2 class="card-title fs-4 text-dark"><%= booking.event.pubcrawl.name %></h2>
+                  <p class="card-text text-dark mb-0"><%= booking.event.date.try(:strftime, "%Y-%m-%d") %></p>
+                  <p class="card-text text-dark"><%= booking.user.nickname %></p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% elsif params[:filter] == 'upcoming' && booking.event.date >= Date.today %>
+        <div class="card mb-3 card-size">
+          <%= link_to event_path(booking.event), style: "text-decoration: none;" do %>
+            <div class="row g-0">
+              <div class="col-5">
+                <%= cl_image_tag booking.event.pubcrawl.photo.key, class:"img-booking-index" %>
+              </div>
+              <div class="col-7">
+                <div class="card-body card-body-booking">
+                  <h2 class="card-title fs-4 text-dark"><%= booking.event.pubcrawl.name %></h2>
+                  <p class="card-text text-dark mb-0"><%= booking.event.date.try(:strftime, "%Y-%m-%d") %></p>
+                  <p class="card-text text-dark"><%= booking.user.nickname %></p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
