@@ -63,7 +63,7 @@
     <% @event.bookings.each do |booking| %>
       <% if booking.user.nickname != "MASTER" %>
          <div style="color:white" data-bs-toggle="modal" data-bs-target="#userModal-<%= booking.user.id %>">
-      <%= cl_image_tag booking.user.avatar.key, class:"avatar" %>
+      <%= cl_image_tag booking.user.avatar.key, class:"avatar-event" %>
        <%= booking.user.nickname %>
          <% if booking.people %>
           <strong>+</strong>
