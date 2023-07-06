@@ -95,7 +95,7 @@
   <div id="image-slider"  style="display: flex; justify-content: center;">
     <% @event.reviews.each do |review| %>
       <% review.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, class: "card-notif", style: 'height: 300px; max-width: 98%; border-radius: 20px; margin-bottom: 5px; border: 0.5px solid white' %>
+        <%= cl_image_tag photo.key, class: "card-notif", style: 'height: 300px; max-width: 98%; border-radius: 20px; margin-bottom: 5px; border: 0.5px solid white; object-fit: cover; object-position: center' %>
       <% end %>
     <% end %>
   </div>
